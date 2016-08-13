@@ -8,9 +8,32 @@ RailsAdmin.config do |config|
   end
 
   config.main_app_name { ['My App', 'Admin'] }
+  config.excluded_models << "ItemCategory"
 
   config.model Item do
-  
+
+    list do
+      exclude_fields :lastname
+      exclude_fields :avatar
+      exclude_fields :email
+      exclude_fields :pending
+      exclude_fields :description      
+      exclude_fields :address
+      exclude_fields :phone
+      exclude_fields :code
+    end
+
+    edit do
+      exclude_fields :item_categories
+    end
+  end
+
+  config.model Category do
+    
+    edit do
+      exclude_fields :item_categories
+    end
+
   end
 
   ## == Devise ==

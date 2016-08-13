@@ -5,7 +5,9 @@ class CreateItems < ActiveRecord::Migration
       t.string      :lastname
       t.attachment  :avatar
       t.string      :email
+      t.text        :title
       t.text        :description
+      t.decimal     :price
       t.string      :address
       t.string      :phone
       t.string      :code
