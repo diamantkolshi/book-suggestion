@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'items/index'
+
+  get 'items/new'
+
+  get 'items/create'
+
+  get 'items/show'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'homepages#index'
 

@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811203310) do
+ActiveRecord::Schema.define(version: 20160813055941) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "item_categories", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "item_categories", ["category_id"], name: "index_item_categories_on_category_id"
+  add_index "item_categories", ["item_id"], name: "index_item_categories_on_item_id"
 
   create_table "items", force: :cascade do |t|
     t.string   "firstname"
@@ -21,11 +37,14 @@ ActiveRecord::Schema.define(version: 20160811203310) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "email"
+    t.text     "title"
     t.text     "description"
+    t.decimal  "price"
     t.string   "address"
-    t.integer  "phone"
-    t.integer  "code"
+    t.string   "phone"
+    t.string   "code"
     t.boolean  "pending"
+    t.boolean  "approve"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
