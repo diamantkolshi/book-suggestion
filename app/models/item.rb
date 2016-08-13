@@ -6,4 +6,12 @@ class Item < ActiveRecord::Base
 	has_many :item_categories
   has_many :categories, through: :item_categories
 
+  validates :firstname, presence: true
+  validates :lastname, presence: true
+  validates :email, presence: true
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :phone, presence: true
+  validates :price, presence: true
+  
 end

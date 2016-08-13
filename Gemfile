@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
-ruby "2.3.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '4.2.5.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -27,6 +26,7 @@ gem "paperclip", "~> 5.0.0"
 gem "rails_panel"
 gem "selectize-rails"
 gem 'rename'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 
 
@@ -70,7 +70,7 @@ group :test do
   gem "database_cleaner"
   gem "formulaic"
   gem "launchy"
-  gem "shoulda-matchers"
+  gem 'shoulda-matchers', require: false
   gem "simplecov", require: false
   gem "timecop"
   gem "webmock"
