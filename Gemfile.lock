@@ -262,6 +262,9 @@ GEM
     selectize-rails (0.12.2)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
+    simple_form (3.2.1)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
     simplecov (0.12.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -320,6 +323,7 @@ DEPENDENCIES
   formulaic
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   launchy
   meta_request
   paperclip (~> 5.0.0)
@@ -338,6 +342,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   selectize-rails
   shoulda-matchers
+  simple_form
   simplecov
   spring
   spring-commands-rspec
