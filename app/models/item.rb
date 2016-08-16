@@ -2,7 +2,7 @@ class Item < ActiveRecord::Base
 
   paginates_per 16
   
-	has_attached_file :avatar, styles: { medium: "250x250#", thumb: "54x54#", profile: '386x244#' }
+	has_attached_file :avatar, styles: { medium: "250x250#", thumb: "54x54#", profile: '386x244#' }, :default_url => 'no_image.jpg'
 	validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 	has_many :item_categories

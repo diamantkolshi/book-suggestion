@@ -1,2 +1,96 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<div class="container">
+	<!-- Page Heading/Breadcrumbs -->
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">Post
+			<small>by <a href="#"><%= @item.firstname %></a>
+			</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="index.html">Home</a>
+			</li>
+			<li class="active"><%= @item.title %></li>
+		</ol>
+	</div>
+</div>
+<!-- /.row -->
+<!-- Content Row -->
+<div class="row">
+	<!-- Blog Post Content Column -->
+	<div class="col-lg-2"></div>
+	<div class="col-lg-8">
+		<hr>
+		<p><i class="fa fa-clock-o"></i> Posted on <%= @item.created_at %></p>
+		<hr>
+		<div style="text-align: center">
+			<%= image_tag @item.avatar.url(:profile) %>
+		</div>
+		<hr>
+		<!-- Post Content -->
+		<p class="lead"><%= @item.description %></p>
+		<p>Transferi i kredisë
+				Ky shërbim ju mundëson të gjithë konsumatorëve me parapagim që të transferojnë një shumë të caktuar së kredisë së tyre tek konsumatorët tjerë me karakteristika prepaid.</p> 
+
+				<p> Instrukcionet për të transferuar kredine prej kontos së juaj me parapagim në një konto tjetër me parapagim:
+
+				Shtypni si në vijim: *121*44xxxxxx*shuma e kredisë*pinkodi# dhe konfirmojeni duke shtypur butonin për thirrje.
+				Do te merrni një porosi konfimimi për të autorizur këtë transfer. Nese informata është në rregull atëherë, konfirmojeni. Do të merrni prapë një porosi për transfer të kredisë me sukses.
+				VËREJTJE: Kjo porosi notifikimi nuk do të ruhet në mobilin e juaj. Porosia poashtu do t`i dërgohet edhe pranuesit të kredise si njoftim për këtv transfer dhe shumën. </p>
+
+				<p>Demonstrim i transferit:
+
+				Për të transferuar kredinë me vlerë prej 5€ nga numri 044111xxx në numrin 044xxxxxx duhet të shtypni si në vijim:
+
+				*121*44xxxxxx*5*00000# dhe ta konfirmoni duke shtypur butonin për thirrje, ku:
+				*121* është - Kodi per qasjen e këtij shërbimi
+				*44xxxxxx* është - Numri i destinimit për transfer
+				*Pinkodi# është - Pin numri personal i cili mund të modifikohet (Shif MODIFIKIMI I PIN-it) </p>
+
+
+
+				<p>MODIFIKIMI I PIN NUMRIT (PINCODE):
+
+				Instrukcionet për ta modifikuar PIN numrin:
+
+				1. Shtypeni *102*pinkodin*pinkodin e ri*pinkodin e ri#</p>
+
+
+
+				<p>Demonstrim i modifikimit të pin numrit:
+
+				Shtypeni *102*00000*12345*12345# dhe ta konfirmoni duke shtypur butonin per thirrje, ku:
+				*102* është - Kodi për qasjen e këtij shërbimi
+				*00000* është – pin kodi i vjetër
+				*12345* është – Kodi i ri i selektuar 
+
+			</p>
+		<hr>
+		<!-- Blog Comments -->
+		<!-- Comments Form -->
+		<div class="well">
+			<h4>Enter code:</h4>
+			<form role="form">
+				<div class="form-group">
+					<textarea class="form-control" rows="1" style="width:300px" ></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+		<hr>
+	</div>
+	<!-- Blog Sidebar Widgets Column -->
+	<div class="col-md-4">
+		
+	</div>
+</div>
+<!-- /.row -->
+<hr>
+<!-- Footer -->
+	<footer>
+		<div class="row">
+			<div class="col-lg-12">
+				<p>Copyright &copy; Your Website 2014</p>
+			</div>
+		</div>
+	</footer>
+</div>
