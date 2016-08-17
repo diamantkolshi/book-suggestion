@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :country do
+    
+  end
   
   sequence :firstname do |n|
     "firstname#{n}"

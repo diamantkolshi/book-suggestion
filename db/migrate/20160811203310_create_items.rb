@@ -1,6 +1,8 @@
 class CreateItems < ActiveRecord::Migration
   def change
     create_table :items do |t|
+      t.belongs_to  :category, index: true
+      t.belongs_to  :country, index: true
       t.string      :firstname
       t.string      :lastname
       t.attachment  :avatar

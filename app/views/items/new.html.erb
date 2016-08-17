@@ -22,12 +22,12 @@
  <%= form_for @items, url: { controller: "items", action: "create" } do |f| %>
 	<div class="form-group row">
 	  <div class="col-xs-12">
-	    <%= f.text_field :firstname, placeholder: "Emri", class: 'form-control' %>
+	    <%= f.text_field :firstname, placeholder: "Emri*", class: 'form-control', required: true %>
 	  </div>
 	</div>
 	<div class="form-group row">
 	  <div class="col-xs-12">
-	    <%= f.text_field :lastname, placeholder: "Mbiemri", class: 'form-control' %>
+	    <%= f.text_field :lastname, placeholder: "Mbiemri*", class: 'form-control', required: true %>
 	  </div>
 	</div>
 	<div class="form-group row">
@@ -37,32 +37,37 @@
 	</div>
 	<div class="form-group row">
 	  <div class="col-xs-12">
-	  	<%= f.text_field :address, placeholder: "Adresa", class: 'form-control' %>
+	  	<%= f.text_field :address, placeholder: "Adresa*", class: 'form-control', required: true %>
 	  </div>
 	</div>
 	<div class="form-group row">
 	  <div class="col-xs-12">
-	  	<%= f.text_field :phone, placeholder: "Telefoni", class: 'form-control' %>
+	  	<%= f.text_field :phone, placeholder: "Telefoni*", class: 'form-control', required: true %>
 	  </div>
 	</div>
 	<div class="form-group row">
 	  <div class="col-xs-12">
-	    <%= f.collection_select(:categories, Category.all, :id, :name, { include_blank: 'Zgjitdh kategorine' }, class: 'form-control') %>
+	    <%= f.collection_select :country_id, Country.all, :id, :name, {prompt: "Zgjidh Vendin*"}, {class: "form-control", :required => true}%>
 	  </div>
 	</div>
 	<div class="form-group row">
 	  <div class="col-xs-12">
-	  	<%= f.text_field :title, placeholder: "Titulli i shpalljes", class: 'form-control' %>
+	    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Zgjidh kategorine e librave*"}, {class: "form-control", :required => true}%>
 	  </div>
 	</div>
 	<div class="form-group row">
 	  <div class="col-xs-12">
-	  	<%= f.text_field :description, placeholder: "Permbajtja", class: 'form-control' %>
+	  	<%= f.text_field :title, placeholder: "Titulli i shpalljes*", class: 'form-control', required: true %>
 	  </div>
 	</div>
 	<div class="form-group row">
 	  <div class="col-xs-12">
-	  	<%= f.text_field :price, class: 'form-control', placeholder: "Cmimi" %>
+	  	<%= f.text_field :description, placeholder: "Permbajtja*", class: 'form-control', required: true %>
+	  </div>
+	</div>
+	<div class="form-group row">
+	  <div class="col-xs-12">
+	  	<%= f.text_field :price, class: 'form-control', placeholder: "Cmimi*", required: true %>
 	  </div>
 	</div>
 	<div class="form-group row">

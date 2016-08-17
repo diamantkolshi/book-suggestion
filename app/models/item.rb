@@ -5,8 +5,9 @@ class Item < ActiveRecord::Base
 	has_attached_file :avatar, styles: { medium: "250x250#", thumb: "54x54#", profile: '386x244#' }, :default_url => 'no_image.jpg'
 	validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
-	has_many :item_categories
-  has_many :categories, through: :item_categories
+	belongs_to :category
+  belongs_to :country
+  
 
   validates :firstname, presence: true
   validates :lastname, presence: true
@@ -15,6 +16,8 @@ class Item < ActiveRecord::Base
   validates :description, presence: true
   validates :phone, presence: true
   validates :price, presence: true
+  validates :category, presence: true
+  validates :country, presence: true
 
   def self.search(search)
     where("title LIKE ? OR description LIKE ?", "%#{search}%","%#{search}%") 
