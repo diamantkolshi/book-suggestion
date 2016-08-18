@@ -1,0 +1,2 @@
+module KsPlatformHelper
+end

@@ -1,34 +1,22 @@
 class ItemsController < ApplicationController
-  
-  def index
-    if params[:search] && params[:search] != ""
-      @items = Item.search(params[:search]).order("created_at DESC").page params[:page]
-    else
-      @items = Item.where(approve: true).page params[:page]
-    end
-  end
 
   def new
-  	@items = Item.new
+    @items = Item.new
   end
 
   def create
     @item = Item.new(require_params)
     if @item.save
-    	flash[:success] = "Kerkesa juaj eshte bere me sukses"
+      flash[:success] = "Kerkesa juaj eshte bere me sukses"
     else
       flash[:danger] = @item.errors.messages      
- 	 	end
+    end
     redirect_to new_item_path
   end
-
-  def show
-    @item = Item.find(params[:id])
-  end
-
+  
   private 
 
   def require_params
-    params.require(:item).permit(:firstname, :lastname, :email, :address, :phone, :country_id, :category_id, :title, :description, :avatar, :price)
+    params.require(:item).permit(:name, :email, :address, :location, :phone, :country_id, :category_id, :title, :description, :avatar, :price)
   end
 end

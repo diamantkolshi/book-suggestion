@@ -3,10 +3,10 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
       t.belongs_to  :category, index: true
       t.belongs_to  :country, index: true
-      t.string      :firstname
-      t.string      :lastname
+      t.string      :name
       t.attachment  :avatar
       t.string      :email
+      t.string      :location
       t.text        :title
       t.text        :description
       t.decimal     :price

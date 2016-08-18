@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :items
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'homepages#index'
 
-  resources :items, only: [:index, :new, :create, :show]
+  resources :items, only: [:new, :create]
+  resources :ks_platform, only: [:index, :show]
+  resources :al_platform, only: [:index, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,2 @@
+module AlPlatformHelper
+end

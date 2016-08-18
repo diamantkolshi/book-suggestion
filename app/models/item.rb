@@ -1,4 +1,7 @@
 class Item < ActiveRecord::Base
+  
+  # extend FriendlyId
+  # friendly_id :name, use: :slugged
 
   paginates_per 16
   
@@ -8,16 +11,14 @@ class Item < ActiveRecord::Base
 	belongs_to :category
   belongs_to :country
   
-
-  validates :firstname, presence: true
-  validates :lastname, presence: true
-  validates :email, presence: true
+  validates :name, presence: true
   validates :title, presence: true
   validates :description, presence: true
   validates :phone, presence: true
   validates :price, presence: true
   validates :category, presence: true
   validates :country, presence: true
+  validates :location, presence: true
 
   def self.search(search)
     where("title LIKE ? OR description LIKE ?", "%#{search}%","%#{search}%") 
