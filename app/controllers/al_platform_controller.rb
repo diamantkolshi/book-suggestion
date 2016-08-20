@@ -8,7 +8,11 @@ class AlPlatformController < ApplicationController
     end
   end
 
-   def show
+  def show
    	 @item = Item.find(params[:id])
   end
+
+  def al_code_request_result
+  end
+
 end

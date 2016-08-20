@@ -12,4 +12,7 @@ class KsPlatformController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def ks_code_request_result
+  end
+
 end

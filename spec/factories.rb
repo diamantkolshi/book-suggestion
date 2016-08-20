@@ -1,14 +1,10 @@
 FactoryGirl.define do
-  factory :country do
+  factory :access_code do
     
   end
   
-  sequence :firstname do |n|
-    "firstname#{n}"
-  end
-
-  sequence :lastname do |n|
-    "lastname#{n}"
+  sequence :name do |n|
+    "name#{n}"
   end
 
   sequence :email do |n|
@@ -23,21 +19,29 @@ FactoryGirl.define do
     "044 123 45#{n}"
   end
 
-  sequence :name do |n|
+  sequence :category_name do |n|
     "category#{n}"
   end
 
+  sequence :country_name do |n|
+    "country#{n}"
+  end
+
   factory :category do
-    name 
+    category_name 
+  end
+
+  factory :country do
+    country_name 
   end
 
   factory :item do
-    firstname
-    lastname
+    name
     email
     title
     phone
-    association :category
+    association :category, factory: :category
+    association :country, factory: :country
     price 32.79
   end
 
