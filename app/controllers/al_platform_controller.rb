@@ -1,4 +1,5 @@
 class AlPlatformController < ApplicationController
+  include AlPlatformHelper
 
 	def index
     if params[:search] && params[:search] != ""
@@ -9,10 +10,15 @@ class AlPlatformController < ApplicationController
   end
 
   def show
-   	 @item = Item.find(params[:id])
-  end
+    @item = Item.find(params[:id])
+    @contact_result = nil
 
-  def al_code_request_result
+    if params[:code].present?
+      @contact_result = check_code(params[:code], @item)
+      if @contact_result == true
+        regenerate_al_code
+      end
+    end  
   end
 
 end

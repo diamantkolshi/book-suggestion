@@ -66,15 +66,17 @@
 			</p>
 		<hr>
 		<!-- Blog Comments -->
-		<!-- Comments Form -->
-		<div class="well">
+		<div class="well col-lg-6">
 			<h4>Enter code:</h4>
-			<form role="form">
+			<%= form_tag al_platform_path, method: :get do %>
 				<div class="form-group">
-					<textarea class="form-control" rows="1" style="width:300px" ></textarea>
+					<%= text_field_tag :code %>
 				</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
-			</form>
+				<%= submit_tag "submit", class: "btn btn-primary" %>
+			<% end %>
+		</div>
+		<div class="col-lg-6">
+			<%= @contact_result %>			
 		</div>
 		<hr>
 	</div>

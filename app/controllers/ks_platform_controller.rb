@@ -1,4 +1,5 @@
 class KsPlatformController < ApplicationController
+  include KsPlatformHelper
 
 	def index
     if params[:search] && params[:search] != ""
@@ -10,9 +11,14 @@ class KsPlatformController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-  end
+    @contact_result = nil
 
-  def ks_code_request_result
+    if params[:code].present?
+      @contact_result = check_code(params[:code], @item)
+      if @contact_result == true
+        regenerate_ks_code
+      end
+    end  
   end
 
 end
