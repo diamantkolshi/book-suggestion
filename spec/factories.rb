@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :access_code do
-    
+    ks_code "gjyud9"
+    al_code "yw2jk7"
   end
   
   sequence :name do |n|
@@ -19,30 +20,29 @@ FactoryGirl.define do
     "044 123 45#{n}"
   end
 
-  sequence :category_name do |n|
-    "category#{n}"
-  end
-
-  sequence :country_name do |n|
-    "country#{n}"
-  end
+  sequence :description do |n|
+    "Gjuhe Shqipe 1#{n}, Matematike 1#{n}"
+  end 
 
   factory :category do
-    category_name 
+    name "klasa e 10"
   end
 
   factory :country do
-    country_name 
+    name "kosova"
   end
 
   factory :item do
     name
     email
     title
+    description
     phone
+    location "Prishtina"
     association :category, factory: :category
     association :country, factory: :country
     price 32.79
+    approve true
   end
 
 end
