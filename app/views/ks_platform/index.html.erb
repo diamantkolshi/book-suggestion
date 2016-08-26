@@ -12,9 +12,30 @@
 	</div>
 		<% end %>
 
-
 	<div class="col-lg-12">
 		<h4 class="page-header"><%= "Te gjitha librat".upcase %></h4>
 	</div>
-<%= render "products" %>
+
+
+	<div class="col-md-8">
+		<%= render "products" %>    
+	</div>
+
+	<div class="col-md-3">
+	    <div class="well">
+	        <h4>Categories</h4>
+	        <div class="row">
+	            <div class="col-lg-10">
+	                <ul class="list-unstyled">
+	                  <% @categories.each do |category| %>
+	                    <li>
+	                    	<%= link_to category.name, ks_platform_index_path(cat: category.name) %>
+	                    </li>
+	                  <% end %>
+	                </ul>
+	            </div>
+	          </div>
+	    </div>
+	</div>
+
 </div>

@@ -7,6 +7,11 @@ class AlPlatformController < ApplicationController
     else
       @items = Item.where(country_id: 2, approve: true).page params[:page]
     end
+    
+    if params[:cat].present?
+      @items = Category.find_by(name: params[:cat]).items.where(country_id: 2).page params[:page] 
+    end
+    @categories = Category.all
   end
 
   def show

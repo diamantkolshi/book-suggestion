@@ -4,15 +4,15 @@
 
 <% if @items.any? %>
 	<% @items.each do |item| %>
-	<div class="col-md-3 col-sm-6">
+	<div class="col-md-4 col-sm-6">
 		<div class="panel panel-default text-center" style="height: 300px;">
 			<div class="panel-heading">
-				<%= image_tag item.avatar.url, style: "width:200px;height:130px;" %>
+				<%= image_tag item.avatar.url, style: "width:180px;height:130px;" %>
 			</div>
 			<div class="panel-body">
 				<h4><%= link_to item.title, al_platform_path(item) %></h4>
 				<p><%= item.description %></p>
-				<a href="#" class="btn btn-primary">Shiko</a>
+				<!-- <a href="#" class="btn btn-primary">Shiko</a> -->
 			</div>
 		</div>
 	</div>
