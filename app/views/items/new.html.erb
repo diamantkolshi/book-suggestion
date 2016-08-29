@@ -3,7 +3,7 @@
 <div class="col-md-4" style="border: 2px solid #b0a084;padding: 25px;">
 	<% if flash[:danger].present? %>
   <div class="row">
-    <div class="col-lg-4"></div>
+    <div class="col-lg-2"></div>
     <div class="col-lg-6 text-mutted m-b">
       <% flash[:danger].each do |colmun, message| %>
         <p style="color: red"><%= colmun %>: <%= message[0] %></p>
@@ -11,6 +11,7 @@
     </div>
   </div><br>
   <% end %>
+
   <% if flash[:success].present? %>
   <div class="row">
     <div class="col-lg-4"></div>
@@ -37,7 +38,8 @@
 	</div>
 	<div class="form-group row">
 	  <div class="col-xs-12">
-	    <%= f.text_field :location, placeholder: "lokcaioni*", class: 'form-control', required: true %>
+	    <%= f.select :location, ["Pr","Pz","Fr"], {prompt: "Zgjidh locacionin*"}, { class: "form-control", require: true } %>
+	    <%# f.text_field :location, placeholder: "lokcaioni*", class: 'form-control', required: true %>
 	  </div>
 	</div>
 	<div class="form-group row">
@@ -76,7 +78,19 @@
 	  	<%= f.file_field :avatar, class: 'form-control' %>
 	  </div>
 	</div>
-  <br>
+	<div class="form-group row">
+	  <div class="col-xs-12">
+	  	<%= f.text_field :code, class: 'form-control', placeholder: "Shkruj kodin*", required: true, style: "" %>
+	  </div>
+	</div>
+  <% if flash[:error].present? %>
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-6 text-mutted m-b">
+      <%= flash[:error] %>
+    </div>
+  </div><br>
+  <% end %>
 	<div class="form-group row">
 	  <div class="col-xs-3"></div>
 	  <div class="col-xs-6">
@@ -86,3 +100,81 @@
 <% end %>
 </div>
 <div class="col-md-3" style="margin: 30px;"></div>
+
+<script>
+	var cities = [
+		{"country_id": 1, "city": "Artanë"},
+		{"country_id": 1, "city": "Besianë"},
+		{"country_id": 1, "city": "Burim"},
+		{"country_id": 1, "city": "Dardanë"},
+		{"country_id": 1, "city": "Deçan"},
+		{"country_id": 1, "city": "Dragash"},
+		{"country_id": 1, "city": "Drenas"},
+		{"country_id": 1, "city": "Ferizaj"},
+		{"country_id": 1, "city": "Fushë Kosovë"},
+		{"country_id": 1, "city": "Gjakovë"},
+		{"country_id": 1, "city": "Gjilan"},
+		{"country_id": 1, "city": "Kastriot"},
+		{"country_id": 1, "city": "Kaçanik"},
+		{"country_id": 1, "city": "Klinë"},
+		{"country_id": 1, "city": "Leposaviq"},
+		{"country_id": 1, "city": "Lipjan"},
+		{"country_id": 1, "city": "Malishevë"},
+		{"country_id": 1, "city": "Mitrovicë"},
+		{"country_id": 1, "city": "Pejë"},
+		{"country_id": 1, "city": "Prishtinë"},
+		{"country_id": 1, "city": "Prizren"},
+		{"country_id": 1, "city": "Rahovec"},
+		{"country_id": 1, "city": "Skenderaj"},
+		{"country_id": 1, "city": "Shtërpcë"},
+		{"country_id": 1, "city": "Shtime"},
+		{"country_id": 1, "city": "Therandë"},
+		{"country_id": 1, "city": "Viti"},
+		{"country_id": 1, "city": "Vushtrri"},
+		{"country_id": 1, "city": "Zubin"},
+		{"country_id": 1, "city": "Potok"},
+		{"country_id": 1, "city": "Zveçan"},
+
+
+		{"country_id": 2, "city": "Tirana"},
+		{"country_id": 2, "city": "Durrësi"},
+		{"country_id": 2, "city": "Elbasani"},
+		{"country_id": 2, "city": "Vlora"},
+		{"country_id": 2, "city": "Shkodra"},
+		{"country_id": 2, "city": "Korça"},
+		{"country_id": 2, "city": "Fieri"},
+		{"country_id": 2, "city": "Berati"},
+		{"country_id": 2, "city": "Lushnja"},
+		{"country_id": 2, "city": "Kavaja"},
+		{"country_id": 2, "city": "Laçi"},
+		{"country_id": 2, "city": "Lezha"},
+		{"country_id": 2, "city": "Kukësi"},
+		{"country_id": 2, "city": "Gjirokastra"},
+		{"country_id": 2, "city": "Kruja"},
+		{"country_id": 2, "city": "Saranda"},
+		{"country_id": 2, "city": "Librazhdi"},
+		{"country_id": 2, "city": "Përmeti"},
+		{"country_id": 2, "city": "Peqini"},
+		{"country_id": 2, "city": "Puka"},
+		{"country_id": 2, "city": "Shëngjini"},
+	];
+
+
+
+	$('#item_country_id').change(function() {
+
+		var id=$(this).val();
+		// var dataString = 'id='+ id;
+     
+		var option = '<option selected="selected" value=""> Zgjedh Qytetin* </option>';
+
+		for(var i = 0; i < cities.length; i++) {
+			if(cities[i].country_id == id) {
+				option += '<option value="'+ cities[i].city+'">'+cities[i].city+'</option>';
+			}
+		}
+
+		$("#item_location").prop("required", "required"); 
+		$("#item_location").html(option);
+	});
+</script>

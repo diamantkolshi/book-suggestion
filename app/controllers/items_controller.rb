@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  include ItemsHelper
 
   def new
     @items = Item.new
@@ -6,10 +7,15 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(require_params)
-    if @item.save
-      flash[:success] = "Kerkesa juaj eshte bere me sukses"
+    if check_code(params[:item][:code]) == true
+      if @item.save
+        flash[:success] = "Kerkesa juaj eshte bere me sukses"
+        # regeneration_code method
+      else
+        flash[:danger] = @item.errors.messages      
+      end
     else
-      flash[:danger] = @item.errors.messages      
+      flash[:error] = "Kodi nuk eshte valid"
     end
     redirect_to new_item_path
   end

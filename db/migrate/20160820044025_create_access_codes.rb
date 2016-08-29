@@ -3,6 +3,7 @@ class CreateAccessCodes < ActiveRecord::Migration
     create_table :access_codes do |t|
     	t.string 	:al_code
     	t.string 	:ks_code
+    	t.string  :registration_code
     	t.boolean :status, default: true
 
       t.timestamps null: false

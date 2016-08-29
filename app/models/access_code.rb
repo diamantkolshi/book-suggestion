@@ -11,4 +11,8 @@ class AccessCode < ActiveRecord::Base
   	ks_code = rand(36**6).to_s(36)
   end
 
+  def self.reg_code_generate
+  	registration_code = rand(36**6).to_s(36)
+  end
+
 end
