@@ -7,6 +7,14 @@ Rails.application.config.assets.precompile += %w( bootstrap.css )
 Rails.application.config.assets.precompile += %w( bootstrap.min.css )
 Rails.application.config.assets.precompile += %w( modern-business.css )
 
+Rails.application.config.assets.precompile += %w( owl.carousel.css )
+Rails.application.config.assets.precompile += %w( owl.theme.css )
+Rails.application.config.assets.precompile += %w( owl.transitions.css )
+Rails.application.config.assets.precompile += %w( flexslider.css )
+Rails.application.config.assets.precompile += %w( main_style.css )
+Rails.application.config.assets.precompile += %w( font-awesome.min.css )
+
+
 
 
 # Add additional assets to the asset load path
@@ -16,3 +24,6 @@ Rails.application.config.assets.precompile += %w( modern-business.css )
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile += %w( jquery.js )
 Rails.application.config.assets.precompile += %w( bootstrap.min.js )
+Rails.application.config.assets.precompile += %w( owl.carousel.min.js )
+Rails.application.config.assets.precompile += %w( jquery.flexslider-min.js )
+

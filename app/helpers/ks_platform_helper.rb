@@ -22,5 +22,4 @@ module KsPlatformHelper
 
 	end
 
-
 end

@@ -1,99 +1,168 @@
+<div class="spacer-30"></div>
 <div class="container">
-	<!-- Page Heading/Breadcrumbs -->
-	<div class="row">
-		<div class="col-lg-12">
-			<h1 class="page-header">Post
-			<small>by <a href="#"><%= @item.name %></a>
-			</small>
-			</h1>
-			<ol class="breadcrumb">
-				<li><a href="index.html">Home</a>
-			</li>
-			<li class="active"><%= @item.title %></li>
-		</ol>
-	</div>
+    <div class="row">
+        <!-- Agent Section -->
+        <section id="agent_sec" class="col-md-8">
+            <!-- Agent Info -->
+            <div class="agen_info2">
+                <div class="col-md-5">
+                    <%= image_tag @item.avatar.url, class: "img-responsive img-hover" %>
+                </div>
+                <div class="col-md-7">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row agen_desc">
+                                <div class="col-md-7">
+                                    <h3 class="sec_titl">
+                                    <%= @item.name %>
+                                    </h3>
+                                    <p class="sec_desc">
+                                        <%= @item.category.name %><br>
+                                        <b style="color: green;font-size: 20px;"><%= @item.price %> €</b>
+                                    </p>
+                                </div>
+                                <div class="col-md-5 p0">
+                                    <div class="sec_desc">
+                                        Postuar: <%= @item.created_at.strftime("%m/%d/%Y") %>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="sec_desc">
+                            <strong> <%= @item.title %></strong> </p>
+                            <p class="sec_desc">
+                            <%= @item.description %> </p>
+                        </p>
+                        <div class="panel_bottom">
+                            <div class="agen_feat">
+                                <p class="bedrom">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i> <%= @item.location %>
+                                </p>
+                                <p class="bedrom">
+                                    <i class="fa fa-home"></i><%= @item.address %>
+                                </p>
+                                <p class="area">
+                                    <i class="fa fa-phone"></i> <%= @item.phone %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="spacer-30"></div>
+        <!-- Property Listing -->
+        <div class="row prlist_sec">
+            <div class="titl_sec">
+                <div class="col-lg-12">
+                    <h3 class="main_titl text-left">
+                        Last books
+                    </h3>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <!-- Property List 1 -->
+            <% @last_items.each do |item| %>
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-image">
+                            <%= image_tag item.avatar.url, class: "img-responsive img-hover", style: "height: 250px;"%>
+                            <div class="img_hov_eff">
+                                <%= link_to "More details", ks_platform_path(item), class: "btn btn-default btn_trans" %>
+                            </div>
+                        </div>
+                        <div class="sal_labl">
+                            For Sale
+                        </div>
+                        <div class="panel-body">
+                            <div class="prop_feat">
+                                <p class="area"><i class="fa fa-home"></i> <%= item.location %></p>
+                                <p class="bedrom"><i class="fa fa-map-marker" aria-hidden="true"></i><%= item.address %></p>
+                                <p class="bedrom"><i class="fa fa-phone" aria-hidden="true"></i><%= item.phone %></p>
+                            </div>
+                            <h3 class="sec_titl"><%= item.title %></h3>
+                            <p class="sec_desc" style="height: 50px;"><%= truncate(item.description,length: 90) %></p>
+                            <div class="panel_bottom">
+                                <div class="col-md-6">
+                                    <p class="price text-left"><%= item.price %>€</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="readmore text-right"><%= item.name %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacer-20"></div>
+                </div>
+            <% end %>
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- Sidebar Section -->
+    <section id="sidebar" class="col-md-4">
+        <!-- Search Form -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="srch_frm">
+                    <h3>Real Estate Search</h3>
+                    <form name="sentMessage" id="contact_Form" novalidate>
+                        <div class="control-group form-group">
+                            <div class="controls">
+                                <label>Keyword </label>
+                                <input type="text" class="form-control" id="keyword" required data-validation-required-message="Please enter a keyword." placeholder="Any keyword">
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="control-group form-group">
+                            <div class="controls">
+                                <label>Location </label>
+                                <select name="State" class="form-control" required data-validation-required-message="Please select a state.">
+                                    <option value="" selected="selected">Any Location</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div id="success4"></div>
+                        <!-- For success/fail messages -->
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="spacer-30"></div>
+        <!-- Categories -->
+        <div class="row">
+            <div class="titl_sec">
+                <div class="col-lg-12">
+                    <h3 class="main_titl text-left">
+                    Categories
+                    </h3>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="categ_info">
+                <div class="info_sec first">
+                    <% @categories.each do |category| %>
+                        <div class="col-md-8">
+                            <%= link_to ks_platform_search_path(cat: category.name) do %>
+                            <i class="fa fa-long-arrow-right"></i>
+                            <p class="infos"> <%= category.name %> <span> (<%= category.items.where(country_id: 1).length %>) </span> </p>
+                        <% end %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.row -->
+    
 </div>
 <!-- /.row -->
-<!-- Content Row -->
-<div class="row">
-	<!-- Blog Post Content Column -->
-	<div class="col-lg-2"></div>
-	<div class="col-lg-8">
-		<hr>
-		<p><i class="fa fa-clock-o"></i> Posted on <%= @item.created_at %></p>
-		<hr>
-		<div style="text-align: center">
-			<%= image_tag @item.avatar.url(:profile) %>
-		</div>
-		<hr>
-		<!-- Post Content -->
-		<p class="lead"><%= @item.description %></p>
-		<p>Transferi i kredisë
-				Ky shërbim ju mundëson të gjithë konsumatorëve me parapagim që të transferojnë një shumë të caktuar së kredisë së tyre tek konsumatorët tjerë me karakteristika prepaid.</p> 
-
-				<p> Instrukcionet për të transferuar kredine prej kontos së juaj me parapagim në një konto tjetër me parapagim:
-
-				Shtypni si në vijim: *121*44xxxxxx*shuma e kredisë*pinkodi# dhe konfirmojeni duke shtypur butonin për thirrje.
-				Do te merrni një porosi konfimimi për të autorizur këtë transfer. Nese informata është në rregull atëherë, konfirmojeni. Do të merrni prapë një porosi për transfer të kredisë me sukses.
-				VËREJTJE: Kjo porosi notifikimi nuk do të ruhet në mobilin e juaj. Porosia poashtu do t`i dërgohet edhe pranuesit të kredise si njoftim për këtv transfer dhe shumën. </p>
-
-				<p>Demonstrim i transferit:
-
-				Për të transferuar kredinë me vlerë prej 5€ nga numri 044111xxx në numrin 044xxxxxx duhet të shtypni si në vijim:
-
-				*121*44xxxxxx*5*00000# dhe ta konfirmoni duke shtypur butonin për thirrje, ku:
-				*121* është - Kodi per qasjen e këtij shërbimi
-				*44xxxxxx* është - Numri i destinimit për transfer
-				*Pinkodi# është - Pin numri personal i cili mund të modifikohet (Shif MODIFIKIMI I PIN-it) </p>
-
-
-
-				<p>MODIFIKIMI I PIN NUMRIT (PINCODE):
-
-				Instrukcionet për ta modifikuar PIN numrin:
-
-				1. Shtypeni *102*pinkodin*pinkodin e ri*pinkodin e ri#</p>
-
-
-
-				<p>Demonstrim i modifikimit të pin numrit:
-
-				Shtypeni *102*00000*12345*12345# dhe ta konfirmoni duke shtypur butonin per thirrje, ku:
-				*102* është - Kodi për qasjen e këtij shërbimi
-				*00000* është – pin kodi i vjetër
-				*12345* është – Kodi i ri i selektuar 
-
-			</p>
-		<hr>
-		<!-- Blog Comments -->
-		<!-- Comments Form -->
-		<div class="well col-lg-6">
-			<h4>Enter code:</h4>
-			<%= form_tag ks_platform_path, method: :get do %>
-				<div class="form-group">
-					<%= text_field_tag :code %>
-				</div>
-				<%= submit_tag "submit", class: "btn btn-primary" %>
-			<% end %>
-		</div>
-		<div class="col-lg-6">
-			<%= @contact_result %>			
-		</div>
-		<hr>
-	</div>
-	<!-- Blog Sidebar Widgets Column -->
-	<div class="col-md-4">
-		
-	</div>
+<div class="spacer-30"></div>
+</section>
+<div class="spacer-60"></div>
 </div>
-<!-- /.row -->
-<hr>
-<!-- Footer -->
-	<footer>
-		<div class="row">
-			<div class="col-lg-12">
-				<p>Copyright &copy; Your Website 2014</p>
-			</div>
-		</div>
-	</footer>
 </div>

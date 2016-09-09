@@ -2,23 +2,44 @@
 <html>
 <head>
   <title>Suggest</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%# stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag    'bootstrap', media: 'all', 'data-turbolinks-track' => false %>
   <%= stylesheet_link_tag    'bootstrap.min', media: 'all', 'data-turbolinks-track' => false %>
-  <%= stylesheet_link_tag    'modern-business', media: 'all', 'data-turbolinks-track' => false %>
+  <%# stylesheet_link_tag    'modern-business', media: 'all', 'data-turbolinks-track' => false %>
 
+
+  <!-- Bootstrap Core CSS -->
+  <%= stylesheet_link_tag  'owl.carousel', media: 'all', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag  'owl.theme', media: 'all', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag  'owl.transitions', media: 'all', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag  'flexslider', media: 'all', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag  'main_style', media: 'all', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag  'font-awesome.min', media: 'all', 'data-turbolinks-track' => false %>
+
+
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
-<body>
+<body style="padding: 0px"> 
 <%= render 'layouts/header' %>
 
 <%= yield %>
 
+
+
 <%= javascript_include_tag 'jquery', 'data-turbolinks-track' => false %>
 <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => false %>
-
+<%= javascript_include_tag 'owl.carousel.min', 'data-turbolinks-track' => false %>
+<%= javascript_include_tag 'jquery.flexslider-min', 'data-turbolinks-track' => false %>
 
 <script>
   $('.carousel').carousel({
@@ -26,6 +47,6 @@
 	})
 </script>
 
-
+<%= render 'layouts/fouter' %>
 </body>
 </html>
