@@ -1,105 +1,141 @@
-<br><br>
-<div class="col-md-4"></div>
-<div class="col-md-4" style="border: 2px solid #b0a084;padding: 25px;">
-	<% if flash[:danger].present? %>
-  <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-6 text-mutted m-b">
-      <% flash[:danger].each do |colmun, message| %>
-        <p style="color: red"><%= colmun %>: <%= message[0] %></p>
-      <% end %>
-    </div>
-  </div><br>
-  <% end %>
+<div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="log_form">
+                        <h2 class="frm_titl"> Regjistro librat </h2>
+                         <%= form_for @items, url: { controller: "items", action: "create" } do |f| %>
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                		<%= f.text_field :name, placeholder: "Emri*", class: 'form-control', required: true %>
+                                    <p class="help-block"></p>
+                                </div>
 
-  <% if flash[:success].present? %>
-  <div class="row">
-    <div class="col-lg-4"></div>
-    <div class="col-lg-6 text-mutted m-b">
-      <%= flash[:success] %>
-    </div>
-  </div><br>
-  <% end %>
- <%= form_for @items, url: { controller: "items", action: "create" } do |f| %>
-	<div class="form-group row">
-	  <div class="col-xs-12">
-	    <%= f.text_field :name, placeholder: "Emri*", class: 'form-control', required: true %>
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <div class="col-xs-12">
-			<%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <div class="col-xs-12">
-	    <%= f.collection_select :country_id, Country.all, :id, :name, {prompt: "Zgjidh Vendin*"}, {class: "form-control", :required => true}%>
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <div class="col-xs-12">
-	    <%= f.select :location, ["Pr","Pz","Fr"], {prompt: "Zgjidh locacionin*"}, { class: "form-control", require: true } %>
-	    <%# f.text_field :location, placeholder: "lokcaioni*", class: 'form-control', required: true %>
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <div class="col-xs-12">
-	    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Zgjidh kategorine e librave*"}, {class: "form-control", :required => true}%>
-	  </div>
-	</div>	
-	<div class="form-group row">
-	  <div class="col-xs-12">
-	  	<%= f.text_field :address, placeholder: "Adresa*", class: 'form-control', required: true %>
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <div class="col-xs-12">
-	  	<%= f.text_field :phone, placeholder: "Telefoni*", class: 'form-control', required: true %>
-	  </div>
-	</div>
-	
-	<div class="form-group row">
-	  <div class="col-xs-12">
-	  	<%= f.text_field :title, placeholder: "Titulli i shpalljes*", class: 'form-control', required: true %>
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <div class="col-xs-12">
-	  	<%= f.text_field :description, placeholder: "Permbajtja*", class: 'form-control', required: true %>
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <div class="col-xs-12">
-	  	<%= f.text_field :price, class: 'form-control', placeholder: "Cmimi*", required: true %>
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <div class="col-xs-12">
-	  	<%= f.file_field :avatar, class: 'form-control' %>
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <div class="col-xs-12">
-	  	<%= f.text_field :code, class: 'form-control', placeholder: "Shkruj kodin*", required: true, style: "" %>
-	  </div>
-	</div>
-  <% if flash[:error].present? %>
-  <div class="row">
-    <div class="col-lg-4"></div>
-    <div class="col-lg-6 text-mutted m-b">
-      <%= flash[:error] %>
-    </div>
-  </div><br>
-  <% end %>
-	<div class="form-group row">
-	  <div class="col-xs-3"></div>
-	  <div class="col-xs-6">
-	    <%= f.submit :Regjistro, class: "form-control", label: false %>
-	  </div>
-	</div>
-<% end %>
-</div>
-<div class="col-md-3" style="margin: 30px;"></div>
+                                <div class="controls">
+                                    <%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
+                                    <p class="help-block"></p>
+                                </div>
+                            </div>
+                            <div class="control-group form-group">
+                                <div class="controls col-md-6 first">
+                                    <%= f.collection_select :country_id, Country.all, :id, :name, {prompt: "Zgjidh Vendin*"}, {class: "form-control", :required => true} %>
+                                </div>
+                                <div class="controls col-md-6">
+                                    <%= f.select :location, [], {prompt: "Zgjidh locacionin*"}, { class: "form-control", require: true } %>
+	   
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="control-group form-group">
+                                <div class="controls">
+																		<%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Zgjidh kategorine e librave*"}, {class: "form-control", :required => true}%>	                <p class="help-block"></p>
+  															</div>
+                            </div>
+                            <div class="control-group form-group">
+                                <div class="controls col-md-6 first">
+                                    <%= f.text_field :address, placeholder: "Adresa*", class: 'form-control', required: true %>
+                                </div>
+                                <div class="controls col-md-6">
+                                    <%= f.text_field :phone, placeholder: "Telefoni*", class: 'form-control', required: true %>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>                            
+                            <div class="control-group form-group">
+                                <div class="controls col-md-6 first">
+                                    <%= f.text_field :title, placeholder: "Titulli i shpalljes*", class: 'form-control', required: true %>
+                                </div>
+                                <div class="controls col-md-6">
+                                    <%= f.text_field :price, class: 'form-control', placeholder: "Cmimi*", required: true %>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                <%= f.text_area :description, placeholder: "Permbajtja*", class: 'form-control', style: "resize:none",required: true %>
+                                </div>
+                            </div>
+                            <div class="control-group form-group">
+                                <div class="controls">
+																	<%= f.file_field :avatar, class: 'form-control' %>
+																	<p class="help-block"></p>
+  															</div>
+                            </div>
+
+                            <div class="control-group form-group">
+                                <div class="controls col-md-8 first">
+                                  <%= f.text_field :code, class: 'form-control', placeholder: "Shkruj kodin*", required: true, style: "border: 1px solid blue" %>
+                                </div>
+                                <div class="controls col-md-4">
+																	<a href="#prop_box" data-toggle="modal" data-target=".bd-example-modal-lg">
+				                            <i class="fa fa-bars"></i>
+				                            <span> Prano kodin </span></a>                                
+				                         </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <%= f.submit :Regjistro, class: "form-control", style: "background: #ef7351;font-size:14px;    text-transform: uppercase;color: white" %>
+                            <div id="success4"></div>
+                            <!-- For success/fail messages -->
+
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				  <div class="modal-dialog modal-lg">
+				    <div class="modal-content">
+				      
+				    	<div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				        <h4 class="modal-title">Prano kodin</h4>
+				      </div>
+
+				      <div class="modal-body">
+				        <div class="row">
+								  <div class="col-md-12 text-center" style="border-bottom: 1px solid brown">
+								  	<p>Manuali se si duhet vepruar per pranimin e kodit <br>
+								  	Posht shihen dy menyrat per Kosove dhe Shqiperi ndiqni hapat ne vijim <br>
+								  	Pasi te keni perfunduar hapat ne vijin ne numrin tuaj te telefonit do te ju dergohet nje kode <br>
+								  	me te cilin mund te beni regjistrimin tuaj.</p>
+								  </div>
+								</div>
+								<div class="row">
+								  <div class="col-md-6 text-center" style="border-right: 1px solid brown">
+								  	<h3> Kosove </h3><br>
+								  	<h4>Vala 900</h5><br>
+
+								  	<p style="text-align: center;border-bottom: 1px solid #a9bcca">Instrukcionet për të transferuar kredine prej kontos së juaj me parapagim në një konto tjetër me parapagim: <br><br>Shtypni si në vijim: <b style="color:red"> *121*44xxxxxx*1*00000# </b> dhe konfirmojeni duke shtypur butonin për thirrje.<br><br> Do te merrni një porosi konfimimi për të autorizur këtë transfer. Nese informata është në rregull atëherë, konfirmojeni. Do të merrni prapë një porosi për transfer të kredisë me sukses.</p><br>
+
+								  	<h4>IPKO</h5><br>
+
+								  	<p style="text-align: center;border-bottom: 1px solid #a9bcca">Udhezimet për të transferuar kredine prej kontos tuaj me parapagim në një konto tjetër me parapagim:<br><br>
+										Hapi 1:<br>
+										Shtypni si në vijim: <b style="color:red">  *124*1*049xxxxxx# </b> dhe konfirmojeni duke shtypur butonin për thirrje.
+										<br><br>Hapi 2:<br>
+										Do të merrni një porosi konfirmimi për të autorizur këtë transfer. Nëse informata është në rregull atëherë,<br><br> konfirmojeni duke shkruar *124#. Do të merrni prapë një porosi për transfer të kredisë me sukses.
+										</p><br>
+								  	<p style="color: red;background-color: #a9c3db">Pasi transaksioni te jete kryer me sukses ne numrin e sakte do te pranoni kodin per regjistrim</p>
+								  </div>
+								  <div class="col-md-6 text-center">
+								  <h3> Shqiperi </h3><br>
+								  	<h5>Vodafone</h5><br>
+
+								  	<p style="text-align: center"><b style="color:green">http://www.vodafone.al/ </b></p><br>
+									</div>
+								</div>
+				      </div>
+
+				      <div class="modal-footer">				       
+				      </div>
+
+				    </div>
+				  </div>
+				</div>
+
 
 <script>
 	var cities = [

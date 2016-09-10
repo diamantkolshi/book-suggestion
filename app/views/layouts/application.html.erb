@@ -8,8 +8,7 @@
 
   <%= stylesheet_link_tag    'bootstrap', media: 'all', 'data-turbolinks-track' => false %>
   <%= stylesheet_link_tag    'bootstrap.min', media: 'all', 'data-turbolinks-track' => false %>
-  <%# stylesheet_link_tag    'modern-business', media: 'all', 'data-turbolinks-track' => false %>
-
+  <%= stylesheet_link_tag    'modern-business', media: 'all', 'data-turbolinks-track' => false %>
 
   <!-- Bootstrap Core CSS -->
   <%= stylesheet_link_tag  'owl.carousel', media: 'all', 'data-turbolinks-track' => false %>
@@ -34,7 +33,7 @@
 
 <%= yield %>
 
-
+<%= render 'layouts/fouter' %>
 
 <%= javascript_include_tag 'jquery', 'data-turbolinks-track' => false %>
 <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => false %>
@@ -47,6 +46,5 @@
 	})
 </script>
 
-<%= render 'layouts/fouter' %>
 </body>
 </html>
