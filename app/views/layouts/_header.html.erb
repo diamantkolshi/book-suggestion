@@ -5,32 +5,22 @@
                 <div class="soc_ico">
                     <ul>
                         <li class="tweet">
-                            <a href="#">
+                            <a href="https://twitter.com/mozaixllc">
                                 <i class="fa fa-twitter"></i>
                             </a>
                         </li>
                         <li class="fb">
-                            <a href="#">
+                            <a href="https://web.facebook.com/mozaixllc">
                                 <i class="fa fa-facebook"></i>
                             </a>
                         </li>
-                        <li class="insta">
-                            <a href="#">
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </li>
                         <li class="linkd">
-                            <a href="#">
+                            <a href="https://www.linkedin.com/company/10234357?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A10234357%2Cidx%3A2-1-2%2CtarId%3A1473546006101%2Ctas%3Amozaix">
                                 <i class="fa fa-linkedin"></i>
                             </a>
                         </li>
-                        <li class="ytube">
-                            <a href="#">
-                                <i class="fa fa-youtube"></i>
-                            </a>
-                        </li>
                         <li class="rss">
-                            <a href="#">
+                            <a href="mozaix.net">
                                 <i class="fa fa-rss"></i>
                             </a>
                         </li>
@@ -42,20 +32,21 @@
             </div>
             <!-- /.top-left -->
             <div class="col-xs-12 col-md-6 top_rgt">
-                <div class="sig_in">
-                    </div>
-                    <div class="submit_prop">
-                        <h3 class="subm_btn"><a href="#prop_box" data-toggle="modal">
+                <div class="sig_in"></div>
+                <div class="submit_prop">
+                    <h3 class="subm_btn">
+                        <%= link_to new_item_path do %>
                             <i class="fa fa-bars"></i>
-                            <span> Submit Property </span></a>
-                            </h3>
-                        </div>
-                    </div>
-                    <!-- /.top-right -->
+                            <span> Regjistro librat </span>
+                        <% end %>
+                    </h3>
                 </div>
-                <!-- /.row -->
             </div>
-            <!-- /.container -->
+            <!-- /.top-right -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
         </section>
         <!-- Navigation -->
         <nav class="navbar" role="navigation">
@@ -76,72 +67,39 @@
                 </div>
                 <!-- Navigation -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <% if params["controller"] == "ks_platform" %>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a class="" href="#"> Home </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="index.html"> Home 1 </a>
-                                </li>
-                                <li>
-                                    <a href="index-2.html"> Home 2 </a>
-                                </li>
-                            </ul>
+                            <%= link_to "Home", ks_platform_index_path %>
                         </li>
                         <li>
-                            <a href="#">Property </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="property_listing.html"> Property Listings </a>
-                                </li>
-                                <li>
-                                    <a href="property_details.html"> Property Single </a>
-                                </li>
-                            </ul>
+                            <a href="#feat_propty">librat</a>
                         </li>
                         <li>
-                            <a href="#">Agents</a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="agents.html">Our Agents </a>
-                                </li>
-                                <li>
-                                    <a href="agents_single.html"> Agent Single </a>
-                                </li>
-                            </ul>
+                            <a href="#category">Kategorite </a>
                         </li>
                         <li>
-                            <a href="features.html">Features</a>
-                        </li>
-                        <li>
-                            <a href="blog.html">Blog</a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="blog-single.html"> Blog Single </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Pages</a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="active" href="about.html"> About us </a>
-                                </li>
-                                <li>
-                                    <a href="services.html"> Services </a>
-                                </li>
-                                <li>
-                                    <a href="pricing.html"> Pricing Table </a>
-                                </li>
-                                <li>
-                                    <a href="404.html"> 404 Page </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="" href="contact.html">Contact</a>
+                            <a class="" href="#footer">Kontakti</a>
                         </li>
                     </ul>
+                    <% end %>
+
+                    <% if params["controller"] == "al_platform" %>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <%= link_to "Home", al_platform_index_path %>
+                        </li>
+                        <li>
+                            <a href="#feat_propty">librat</a>
+                        </li>
+                        <li>
+                            <a href="#category">Kategorite </a>
+                        </li>
+                        <li>
+                            <a class="" href="#footer">Kontakti</a>
+                        </li>
+                    </ul>
+                    <% end %>
                 </div>
                 <!-- /.navbar-collapse -->
             </div>

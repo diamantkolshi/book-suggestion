@@ -20,8 +20,13 @@ class Item < ActiveRecord::Base
   validates :country, presence: true
   validates :location, presence: true
 
-  def self.search(search)
-    where("title LIKE ? OR description LIKE ?", "%#{search}%","%#{search}%") 
+  def self.search(search, location)
+    
+    if location == "Gjithë Kosovën" || location == "Gjithë Shqiperinë"
+      where("title LIKE ? OR description LIKE ?", "%#{search}%","%#{search}%") 
+    else
+      where("location LIKE ? AND title LIKE ? OR description LIKE ?","#{location}","%#{search}%","%#{search}%")
+    end
   end
   
 end

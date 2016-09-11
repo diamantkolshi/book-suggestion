@@ -4,7 +4,7 @@ class KsPlatformController < ApplicationController
 
   def initialize
     @categories = Category.all
-    @cities = ["Artanë", "Besianë", "Burim", "Dardanë", "Deçan", "Dragash", "Drenas"]
+    @cities = ["Gjithë Kosovën","Prishtina", "Artanë", "Besianë", "Burim", "Dardanë", "Deçan", "Dragash", "Drenas"]
     @last_items = Item.where(country_id: 1, approve: true).last(4)
     super
   end
@@ -27,7 +27,7 @@ class KsPlatformController < ApplicationController
 
   def search
     if params[:search] && params[:search] != ""
-      @items = Item.where(country_id: 1, approve: true).search(params[:search]).order("created_at DESC").page params[:page]
+      @items = Item.where(country_id: 1, approve: true).search(params[:search], params[:location]).order("created_at DESC").page params[:page]
     end
 
     if params[:cat].present?

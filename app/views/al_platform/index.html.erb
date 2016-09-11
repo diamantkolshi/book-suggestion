@@ -29,7 +29,7 @@
                             </div>
                             <div class="control-group form-group col-md-4">
                                 <div class="controls">
-                                    <%= select_tag :county, options_for_select(@cities), class: "form-control", :include_blank => "Zgjedh lokacionin" %>
+                                    <%= select_tag :location, options_for_select(@cities), class: "form-control", :include_blank => "Zgjedh lokacionin", required: true%>
                                     </div>
                             </div>
 
@@ -53,7 +53,7 @@
 
     <%= render "products" %> 
     
-    <div class="container">
+    <div class="container" id="category">
         <div class="prop_addinfo">
             <h2 class="add_titl">
                 Kategorite

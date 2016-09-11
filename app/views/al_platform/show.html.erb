@@ -104,29 +104,23 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="srch_frm">
-                    <h3>Real Estate Search</h3>
-                    <form name="sentMessage" id="contact_Form" novalidate>
-                        <div class="control-group form-group">
-                            <div class="controls">
-                                <label>Keyword </label>
-                                <input type="text" class="form-control" id="keyword" required data-validation-required-message="Please enter a keyword." placeholder="Any keyword">
-                                <p class="help-block"></p>
-                            </div>
+                    <h3>Kerko</h3>
+                    <%= form_tag(al_platform_search_path, :method => "get") do %>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <%= text_field_tag :search, params[:search], class: "form-control", :placeholder => "Kerko libra ..", required: true  %>
+                            <p class="help-block"></p>
                         </div>
-                        <div class="control-group form-group">
-                            <div class="controls">
-                                <label>Location </label>
-                                <select name="State" class="form-control" required data-validation-required-message="Please select a state.">
-                                    <option value="" selected="selected">Any Location</option>
-                                    <option value="WY">Wyoming</option>
-                                </select>
-                            </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <%= select_tag :location, options_for_select(@cities), class: "form-control", :include_blank => "Zgjedh lokacionin", required: true %>
                         </div>
-                        
-                        <div id="success4"></div>
-                        <!-- For success/fail messages -->
-                        <button type="submit" class="btn btn-primary">Search</button>
-                    </form>
+                    </div>
+                    <div id="success4"></div>
+                    <!-- For success/fail messages -->
+                    <button type="submit" class="btn btn-primary">Search</button>
+                    <% end %>
                 </div>
             </div>
         </div>

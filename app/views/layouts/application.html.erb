@@ -29,11 +29,15 @@
   <![endif]-->
 </head>
 <body style="padding: 0px"> 
-<%= render 'layouts/header' %>
+<% unless params["controller"] == "homepages" %>
+  <%= render 'layouts/header' %>
+<% end %>
 
 <%= yield %>
 
-<%= render 'layouts/fouter' %>
+<% unless params["controller"] == "homepages" %>
+  <%= render 'layouts/fouter' %>
+<% end %>
 
 <%= javascript_include_tag 'jquery', 'data-turbolinks-track' => false %>
 <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => false %>
