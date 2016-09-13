@@ -168,39 +168,17 @@
                 <div class="titl_sec">
                     <div class="col-lg-12">
                         <h3 class="main_titl text-left">
-                        Tags
+                        Qytetet
                         </h3>
                     </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="tags_sec">
-                    <div class="tags_box first">
-                        <a href="#"> Modern </a>
-                    </div>
-                    <div class="tags_box">
-                        <a href="#"> Amazing</a>
-                    </div>
-                    <div class="tags_box">
-                        <a href="#"> Responsive</a>
-                    </div>
-                    <div class="tags_box first">
-                        <a href="#"> Development</a>
-                    </div>
-                    <div class="tags_box">
-                        <a href="#"> Rent</a>
-                    </div>
-                    <div class="tags_box">
-                        <a href="#"> Properties</a>
-                    </div>
-                    <div class="tags_box first">
-                        <a href="#"> Themeforest</a>
-                    </div>
-                    <div class="tags_box">
-                        <a href="#"> Development</a>
-                    </div>
-                    <div class="tags_box">
-                        <a href="#"> HTML  </a>
-                    </div>
+                    <% @cities.each do |c| %>
+                        <div class="tags_box">
+                            <%= link_to c, al_platform_search_path(city: c) %> 
+                        </div>
+                    <% end %>
                 </div>
             </div>
             <!-- /.row -->

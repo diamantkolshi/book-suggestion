@@ -27,7 +27,11 @@
                     </ul>
                 </div>
                 <div class="inf_txt">
-                    <p>Luxury Real Estate Specialists Worldwide</p>
+                    <% if params["controller"] == "ks_platform" %>
+                        <p>Eksplorimi momental është në Kosovë</p>
+                    <% elsif params["controller"] == "al_platform" %>
+                        <p>Eksplorimi momental është në Shqipëri</p>
+                    <% end %>
                 </div>
             </div>
             <!-- /.top-left -->

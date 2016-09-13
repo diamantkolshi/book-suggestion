@@ -13,8 +13,9 @@ class Item < ActiveRecord::Base
   
   validates :name, presence: true
   validates :title, presence: true
+  validates :title, uniqueness: { :message => 'Titulli eshte i njejte (provo nje titull tjeter)'}
   validates :description, presence: true
-  validates :phone, presence: true
+  validates :phone, presence: { :message => 'Numri i telefonit eshte i njejte'}
   validates :price, presence: true
   validates :category, presence: true
   validates :country, presence: true
@@ -25,7 +26,8 @@ class Item < ActiveRecord::Base
     if location == "Gjithë Kosovën" || location == "Gjithë Shqiperinë"
       where("title LIKE ? OR description LIKE ?", "%#{search}%","%#{search}%") 
     else
-      where("location LIKE ? AND title LIKE ? OR description LIKE ?","#{location}","%#{search}%","%#{search}%")
+      where("AND title LIKE ? OR description LIKE ?","%#{search}%","%#{search}%")
+      where(location: location)
     end
   end
   

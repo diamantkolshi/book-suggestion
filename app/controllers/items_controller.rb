@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
         flash[:danger] = @item.errors.messages      
       end
     else
-      flash[:error] = "Kodi nuk eshte valid"
+      flash[:error] = "Kodi nuk eshte valid (shiko prano kodin)"
     end
     redirect_to new_item_path
   end

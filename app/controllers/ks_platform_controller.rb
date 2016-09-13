@@ -4,7 +4,10 @@ class KsPlatformController < ApplicationController
 
   def initialize
     @categories = Category.all
-    @cities = ["Gjithë Kosovën","Prishtina", "Artanë", "Besianë", "Burim", "Dardanë", "Deçan", "Dragash", "Drenas"]
+    @cities = ["Gjithë Kosovën","Artanë", "Besianë", "Burim", "Dardanë", "Deçan", "Dragash", "Drenas", "Ferizaj",
+                "Fushë Kosovë", "Gjakovë", "Gjilan", "Kastriot", "Kaçanik", "Klinë", "Leposaviq", "Lipjan",
+                "Malishevë", "Mitrovicë", "Pejë", "Prishtinë", "Prizren", "Rahovec", "Skenderaj", "Shtërpcë",
+                "Shtime", "Therandë", "Viti", "Vushtrri", "Zubin", "Potok", "Zveçan"]
     @last_items = Item.where(country_id: 1, approve: true).last(4)
     super
   end
@@ -32,6 +35,14 @@ class KsPlatformController < ApplicationController
 
     if params[:cat].present?
       @items = Category.find_by(name: params[:cat]).items.where(country_id: 1, approve: true).page params[:page] 
+    end
+
+    if params[:city].present?
+      if params[:city] == "Gjithë Kosovën"
+        @items = Item.where(country_id:1, approve: true).page params[:page]  
+      else
+        @items = Item.where(location: params[:city], country_id: 1, approve: true).page params[:page] 
+      end
     end
   end
 

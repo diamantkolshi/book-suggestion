@@ -5,7 +5,9 @@ class AlPlatformController < ApplicationController
 
   def initialize
     @categories = Category.all
-    @cities = ["Gjithë Shqiperinë","Durës", "Tiranë", "Elbasan", "Vlorë", "Krujë", "Sarandë", "Velimpojë", "Kukës"]
+    @cities = ["Gjithë Shqiperinë", "Tirana", "Durrësi", "Elbasani", "Vlora", "Shkodra", "Korça", "Fieri", "Berati",
+               "Lushnja", "Kavaja", "Laçi", "Lezha", "Kukësi", "Gjirokastra", "Kruja", "Saranda", "Librazhdi",
+               "Përmeti", "Peqini", "Puka", "Shëngjini"]
     @last_items = Item.where(country_id: 2, approve: true).last(4)
     super
   end
@@ -33,6 +35,14 @@ class AlPlatformController < ApplicationController
 
     if params[:cat].present?
       @items = Category.find_by(name: params[:cat]).items.where(country_id: 2, approve: true).page params[:page] 
+    end
+
+    if params[:city].present?
+      if params[:city] == "Gjithë Shqiperinë"
+        @items = Item.where(country_id:2, approve: true).page params[:page]  
+      else
+        @items = Item.where(location: params[:city], country_id: 2, approve: true).page params[:page] 
+      end
     end
   end
 

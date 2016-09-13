@@ -1,89 +1,91 @@
+
 <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="log_form">
-                        <h2 class="frm_titl"> Regjistro librat </h2>
-                         <%= form_for @items, url: { controller: "items", action: "create" } do |f| %>
-                            <div class="control-group form-group">
-                                <div class="controls">
-                                		<%= f.text_field :name, placeholder: "Emri*", class: 'form-control', required: true %>
-                                    <p class="help-block"></p>
-                                </div>
+ 	<%= render 'errors' %>
+  <div class="modal-content">
+      <div class="modal-body">
+          <div class="log_form">
+              <h2 class="frm_titl"> Regjistro librat </h2>
+               <%= form_for @items, url: { controller: "items", action: "create" } do |f| %>
+                  <div class="control-group form-group">
+                      <div class="controls">
+                      		<%= f.text_field :name, placeholder: "Emri*", class: 'form-control', required: true %>
+                          <p class="help-block"></p>
+                      </div>
 
-                                <div class="controls">
-                                    <%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
-                                    <p class="help-block"></p>
-                                </div>
-                            </div>
-                            <div class="control-group form-group">
-                                <div class="controls col-md-6 first">
-                                    <%= f.collection_select :country_id, Country.all, :id, :name, {prompt: "Zgjidh Vendin*"}, {class: "form-control", :required => true} %>
-                                </div>
-                                <div class="controls col-md-6">
-                                    <%= f.select :location, [], {prompt: "Zgjidh locacionin*"}, { class: "form-control", require: true } %>
-	   
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="control-group form-group">
-                                <div class="controls">
-																		<%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Zgjidh kategorine e librave*"}, {class: "form-control", :required => true}%>	                <p class="help-block"></p>
-  															</div>
-                            </div>
-                            <div class="control-group form-group">
-                                <div class="controls col-md-6 first">
-                                    <%= f.text_field :address, placeholder: "Adresa*", class: 'form-control', required: true %>
-                                </div>
-                                <div class="controls col-md-6">
-                                    <%= f.text_field :phone, placeholder: "Telefoni*", class: 'form-control', required: true %>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>                            
-                            <div class="control-group form-group">
-                                <div class="controls col-md-6 first">
-                                    <%= f.text_field :title, placeholder: "Titulli i shpalljes*", class: 'form-control', required: true %>
-                                </div>
-                                <div class="controls col-md-6">
-                                    <%= f.text_field :price, class: 'form-control', placeholder: "Cmimi*", required: true %>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="control-group form-group">
-                                <div class="controls">
-                                <%= f.text_area :description, placeholder: "Permbajtja*", class: 'form-control', style: "resize:none",required: true %>
-                                </div>
-                            </div>
-                            <div class="control-group form-group">
-                                <div class="controls">
-																	<%= f.file_field :avatar, class: 'form-control' %>
-																	<p class="help-block"></p>
-  															</div>
-                            </div>
+                      <div class="controls">
+                          <%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
+                          <p class="help-block"></p>
+                      </div>
+                  </div>
+                  <div class="control-group form-group">
+                      <div class="controls col-md-6 first">
+                          <%= f.collection_select :country_id, Country.all, :id, :name, {prompt: "Zgjidh Vendin*"}, {class: "form-control", :required => true} %>
+                      </div>
+                      <div class="controls col-md-6">
+                          <%= f.select :location, [], {prompt: "Zgjidh locacionin*"}, { class: "form-control", require: true } %>
 
-                            <div class="control-group form-group">
-                                <div class="controls col-md-8 first">
-                                  <%= f.text_field :code, class: 'form-control', placeholder: "Shkruj kodin*", required: true, style: "border: 1px solid blue" %>
-                                </div>
-                                <div class="controls col-md-4">
-																	<a href="#prop_box" data-toggle="modal" data-target=".bd-example-modal-lg">
-				                            <i class="fa fa-bars"></i>
-				                            <span> Prano kodin </span></a>                                
-				                         </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <%= f.submit :Regjistro, class: "form-control", style: "background: #ef7351;font-size:14px;    text-transform: uppercase;color: white" %>
-                            <div id="success4"></div>
-                            <!-- For success/fail messages -->
+                      </div>
+                      <div class="clearfix"></div>
+                  </div>
+                  <div class="control-group form-group">
+                      <div class="controls">
+													<%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Zgjidh kategorine e librave*"}, {class: "form-control", :required => true}%>	                <p class="help-block"></p>
+											</div>
+                  </div>
+                  <div class="control-group form-group">
+                      <div class="controls col-md-6 first">
+                          <%= f.text_field :address, placeholder: "Adresa*", class: 'form-control', required: true %>
+                      </div>
+                      <div class="controls col-md-6">
+                          <%= f.text_field :phone, placeholder: "Telefoni*", class: 'form-control', required: true %>
+                      </div>
+                      <div class="clearfix"></div>
+                  </div>                            
+                  <div class="control-group form-group">
+                      <div class="controls col-md-6 first">
+                          <%= f.text_field :title, placeholder: "Titulli i shpalljes*", class: 'form-control', required: true %>
+                      </div>
+                      <div class="controls col-md-6">
+                          <%= f.text_field :price, class: 'form-control', placeholder: "Cmimi*", required: true %>
+                      </div>
+                      <div class="clearfix"></div>
+                  </div>
+                  <div class="control-group form-group">
+                      <div class="controls">
+                      <%= f.text_area :description, placeholder: "Permbajtja*", class: 'form-control', style: "resize:none",required: true %>
+                      </div>
+                  </div>
+                  <div class="control-group form-group">
+                      <div class="controls">
+												<%= f.file_field :avatar, class: 'form-control' %>
+												<p class="help-block"></p>
+											</div>
+                  </div>
 
-                            </div>
-                        <% end %>
-                    </div>
-                </div>
-            </div>
-        </div>
+                  <div class="control-group form-group">
+                      <div class="controls col-md-8 first">
+                        <%= f.text_field :code, class: 'form-control', placeholder: "Shkruj kodin*", required: true, style: "border: 1px solid blue" %>
+                      </div>
+                      <div class="controls col-md-4">
+												<a href="#prop_box" data-toggle="modal" data-target=".bd-example-modal-lg">
+                          <i class="fa fa-bars"></i>
+                          <span> Prano kodin </span></a>                                
+                       </div>
+                      <div class="clearfix"></div>
+                  </div>
+                  <%= f.submit :Regjistro, class: "form-control", style: "background: #ef7351;font-size:14px;    text-transform: uppercase;color: white" %>
+                  <div id="success4"></div>
+                  <!-- For success/fail messages -->
+
+                  </div>
+              <% end %>
+          </div>
+      </div>
+  </div>
+</div>
 
 
-       <%= render "intrudaction" %>
+<%= render "intrudaction" %>
 
 
 <script>
