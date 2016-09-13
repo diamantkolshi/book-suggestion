@@ -10,4 +10,10 @@ module ItemsHelper
 		end
 	end
 
+	def regeneration_code
+		real_code = AccessCode.first
+		real_code.registration_code = rand(36**6).to_s(36)
+		real_code.save
+	end
+
 end

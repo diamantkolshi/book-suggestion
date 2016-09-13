@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     if check_code(params[:item][:code]) == true
       if @item.save
         flash[:success] = "Kerkesa juaj eshte bere me sukses"
-        # regeneration_code method
+        regeneration_code
       else
         flash[:danger] = @item.errors.messages      
       end

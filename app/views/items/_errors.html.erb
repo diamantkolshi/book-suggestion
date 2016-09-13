@@ -4,7 +4,7 @@
   	
    	<div class="row">
       <% flash[:danger].each do |colmun, message| %>
-        <p style="color: black"><i class="fa fa-exclamation" aria-hidden="true"></i> <%= colmun %>: <%= message[0] %></p>
+        <p style="color: white"><i class="fa fa-exclamation" aria-hidden="true"></i> <%= colmun %>: <%= message[0] %></p>
       <% end %>
     </div>
   </div>
@@ -13,7 +13,7 @@
   <div style="background-color: #3EA186;padding: 15px;border-radius: 5px;">
   	<div class="col-md-2"></div>
   	<div class="row">
-      <p style="color: red"><i class="fa fa-check" aria-hidden="true"></i> <%= flash[:success] %></p>     
+      <p style="color: white"><i class="fa fa-check" aria-hidden="true"></i> <%= flash[:success] %></p>     
     </div>
   </div>
 <% end %>
@@ -21,7 +21,7 @@
   <div style="background-color: #ef7351;padding: 15px;border-radius: 5px;">
     <div class="col-md-2"></div>
     <div class="row">
-      <p style="color: black"><i class="fa fa-exclamation" aria-hidden="true"></i> <%= flash[:error] %></p>     
+      <p style="color: white"><i class="fa fa-exclamation" aria-hidden="true"></i> <%= flash[:error] %></p>     
     </div>
   </div>
 <% end %>
