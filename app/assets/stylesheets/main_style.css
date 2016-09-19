@@ -1621,7 +1621,7 @@ section#clients .owl_col .mid_img img {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .footer_top .container {
-    background: url('..app/assets/images/map.png') no-repeat center center;
+    background: url('map.png') no-repeat center center;
     padding: 80px 15px;
     position: relative;
     background-size: cover;
