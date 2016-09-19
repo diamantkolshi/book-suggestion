@@ -20,6 +20,9 @@ class ItemsController < ApplicationController
     redirect_to new_item_path
   end
   
+  def intrudaction
+  end
+  
   private 
 
   def require_params

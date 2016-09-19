@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :items, only: [:new, :create]
   resources :ks_platform, only: [:index, :show]
   resources :al_platform, only: [:index, :show]
-
+  
+  get "intrudaction", to: "items#intrudaction"
   get "ks_platform_search", to: "ks_platform#search"
   get "al_platform_search", to: "al_platform#search"
 

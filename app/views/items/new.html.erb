@@ -63,15 +63,9 @@
                   </div>
 
                   <div class="control-group form-group">
-                      <div class="controls col-md-8 first">
+                      <div class="controls col-md-12 first">
                         <%= f.text_field :code, class: 'form-control', placeholder: "Shkruj kodin*", required: true, style: "border: 1px solid blue" %>
                       </div>
-                      <div class="controls col-md-4">
-												<a href="#prop_box" data-toggle="modal" data-target=".bd-example-modal-lg">
-                          <i class="fa fa-bars"></i>
-                          <span> Prano kodin </span></a>                                
-                       </div>
-                      <div class="clearfix"></div>
                   </div>
                   <%= f.submit :Regjistro, class: "form-control", style: "background: #ef7351;font-size:14px;    text-transform: uppercase;color: white" %>
                   <div id="success4"></div>
@@ -83,10 +77,6 @@
       </div>
   </div>
 </div>
-
-
-<%= render "intrudaction" %>
-
 
 <script>
 	var cities = [
