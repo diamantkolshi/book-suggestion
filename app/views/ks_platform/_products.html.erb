@@ -41,7 +41,7 @@
 													<p class="bedrom"><i class="fa fa-home"></i><%= item.address %></p>
 													<p class="bedrom"><i class="fa fa-phone" aria-hidden="true"></i><%= item.phone %></p>
 												</div>
-												<h3 class="sec_titl"><%= item.title %></h3>
+												<h3 class="sec_titl"><%= truncate(item.title,length: 30) %></h3>
 												<p class="sec_desc" style="height: 50px;"><%= truncate(item.description,length: 90) %></p>
 												<div class="panel_bottom">
 													<div class="col-md-6">
