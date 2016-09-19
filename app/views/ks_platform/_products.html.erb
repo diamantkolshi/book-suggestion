@@ -25,7 +25,7 @@
 							<% if @items.any? %>
 								<% @items.each do |item| %>
 									<div class="col-md-4">
-										<div class="panel panel-default">
+										<div class="panel panel-default" style="margin-bottom: 20px;">
 											<div class="panel-image">
 												<%= image_tag item.avatar.url, class: "img-responsive img-hover", style: "height: 250px;"%>
 												<div class="img_hov_eff">
