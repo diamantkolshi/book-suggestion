@@ -10,6 +10,7 @@ class Item < ActiveRecord::Base
 
 	belongs_to :category
   belongs_to :country
+  has_many :images
   
   validates :name, presence: true
   validates :title, presence: true

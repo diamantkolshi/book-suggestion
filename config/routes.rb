@@ -1,16 +1,23 @@
 Rails.application.routes.draw do
 
-  resources :items
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'homepages#index'
 
   resources :items, only: [:new, :create]
+  get 'items/uploads', to: "items#uploads"
+  post 'upload_image', to: "items#upload_image"  
+  delete 'delete_image', to: "items#delete_image"
+  get 'complete_register', to: "items#complete_register"
+
   resources :ks_platform, only: [:index, :show]
   resources :al_platform, only: [:index, :show]
   
   get "intrudaction", to: "items#intrudaction"
   get "ks_platform_search", to: "ks_platform#search"
   get "al_platform_search", to: "al_platform#search"
+  
+  resources :uploads, only: [:index, :create]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

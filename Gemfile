@@ -31,6 +31,8 @@ gem 'simple_form'
 gem 'kaminari'
 gem 'geocoder'
 gem 'rails_12factor', group: :production
+gem 'dropzonejs-rails'
+gem 'alertify-rails'
 
 
 

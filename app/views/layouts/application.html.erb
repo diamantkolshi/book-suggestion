@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Suggest</title>
-  <%# stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
-   <%= javascript_include_tag 'jquery', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'jquery', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
 
 
@@ -12,7 +12,8 @@
   <%= stylesheet_link_tag    'bootstrap', media: 'all', 'data-turbolinks-track' => false %>
   <%= stylesheet_link_tag    'bootstrap.min', media: 'all', 'data-turbolinks-track' => false %>
   <%= stylesheet_link_tag    'modern-business', media: 'all', 'data-turbolinks-track' => false %>
-
+  <%= stylesheet_link_tag    'jquery.bxslider.css', media: 'all', 'data-turbolinks-track' => false %>
+  
   <!-- Bootstrap Core CSS -->
   <%= stylesheet_link_tag  'owl.carousel', media: 'all', 'data-turbolinks-track' => false %>
   <%= stylesheet_link_tag  'owl.theme', media: 'all', 'data-turbolinks-track' => false %>
@@ -46,11 +47,21 @@
 <%= javascript_include_tag 'owl.carousel.min', 'data-turbolinks-track' => false %>
 <%= javascript_include_tag 'jquery.flexslider-min', 'data-turbolinks-track' => false %>
 <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => false %>
+<%= javascript_include_tag 'jquery.bxslider.min.js', 'data-turbolinks-track' => false %>
+
 
 <script>
   $('.carousel').carousel({
   	interval: 5000 //changes the speed
 	})
+
+    $(document).ready(function () {
+        'use strict';
+            
+        $('#prop_slid').bxSlider({
+            pagerCustom: '#slid_nav'
+        });
+    });
 </script>
 
 </body>

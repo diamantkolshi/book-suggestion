@@ -13,6 +13,7 @@ Rails.application.config.assets.precompile += %w( owl.transitions.css )
 Rails.application.config.assets.precompile += %w( flexslider.css )
 Rails.application.config.assets.precompile += %w( main_style.css )
 Rails.application.config.assets.precompile += %w( font-awesome.min.css )
+Rails.application.config.assets.precompile += %w( jquery.bxslider.css )
 
 
 
@@ -26,4 +27,5 @@ Rails.application.config.assets.precompile += %w( jquery.js )
 Rails.application.config.assets.precompile += %w( bootstrap.min.js )
 Rails.application.config.assets.precompile += %w( owl.carousel.min.js )
 Rails.application.config.assets.precompile += %w( jquery.flexslider-min.js )
+Rails.application.config.assets.precompile += %w( jquery.bxslider.min.js )
 

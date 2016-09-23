@@ -146,7 +146,11 @@
                 <div class="side_feat">
                     <div class="panel panel-default">
                         <div class="panel-image col-md-3">
-                            <%= image_tag la_item.avatar.url, class: "img-responsive img-hover"%>
+                            <% unless la_item.images.first.nil? %>
+                                <%= image_tag la_item.images.first.avatar.url, class: "img-responsive img-hover" %>
+                            <% else %>
+                                <%= image_tag "no_image.jpg", class: "img-responsive img-hover" %>
+                            <% end %>
                         </div>
                         <div class="panel-body col-md-9">
                             <h3 class="sec_titl">

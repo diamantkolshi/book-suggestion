@@ -1,0 +1,99 @@
+
+<div class="container">
+  <div class="row" style="margin-top: 25px;">
+    <div class="titl_sec">
+        <div class="col-xs-6">
+          <h3 class="main_titl text-left" style="border-bottom: none;margin-right: 20px;">        
+          Regjistro Librat      
+        </h3>
+        <h3 class="main_titl text-left" style="border-bottom: none;width: 30px;">          
+           <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </h3>
+        <h3 class="main_titl text-left">  
+           Galeria e fotografive     
+         </h3>
+        </div>
+        <div class="col-xs-6">
+          </h3>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    <div class="col-lg-10 col-lg-offset-1">
+      <div class="well">
+       <%= form_tag "/delete_image", method: :delete do %>             
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus" aria-hidden="true"></i> Shto fotografi</button>
+         <%= submit_tag 'Fshij te perzgjedhurat', id: 'delete', class: 'btn btn-danger pull-right', disabled: @image_content.empty? %>
+        <hr>
+        <div class="row">
+          <div class="col-lg-12">
+              <div class="row">
+                <div id="media-contents" class="col-lg-12">
+                  <% if @image_content.empty? %>
+                  <h5 id="no-media">
+                    <div class="alert alert-danger">
+                      <strong>!</strong> Nuk keni asnje fotografi
+                    </div>
+                  </h5>
+                  <% else %>
+                    <% @image_content.each do |media| %>
+                      <div class="col-lg-4">
+                        <div class="thumbnail">
+                          <%= image_tag media.avatar.url(:profile) %>
+                          <%= hidden_field_tag :item_id, params[:id] %>
+                          <div class="caption">
+                            <p>
+                              <%= check_box_tag 'image_content[]', media.id %> përzgjedh
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <!-- <div class="col-lg-1">
+            <%# link_to 'Fshij te gjitha', delete_all_path, method: :get, id: 'delete-all', class: 'btn btn-danger', disabled: @image_content.empty? %>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="well">
+       <%= form_tag complete_register_path, method: :get do %> 
+        <%= submit_tag 'Perfundo', id: 'finish', class: 'btn pull-right', disabled: @image_content.empty?, style: "background-color:#ef7351;color:white;width: 200px;" %>
+        <div class="row">
+          <div class="col-lg-12">  
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Shto foto</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag '/upload_image', method: :post, class: 'dropzone form', id: 'media-dropzone' do %>
+          <div class="fallback">
+            <%= file_field 'media', multiple: true %>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br><br><br><br>
+<br><br><br><br><br>
