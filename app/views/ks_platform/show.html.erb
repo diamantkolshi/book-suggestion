@@ -64,7 +64,7 @@
 
             <div class="col_labls larg_labl">
               <p class="or_labl">Telefoni: <%= @item.phone %></p>
-              <p class="blu_labl"> $470,00</p>
+              <p class="blu_labl"><%= number_with_precision(@item.price, :precision => 2) %> €</p>
             </div>       
             <!-- Proerty Additional Info -->
 
