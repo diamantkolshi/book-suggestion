@@ -65,6 +65,8 @@
     </div>
     <!-- Navigation -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <% @al_items = Category.first.items.where(country_id: 2, approve: true) %>
+    <% @kl_items = Category.first.items.where(country_id: 1, approve: true) %>    
       <% if params["controller"] == "ks_platform" %>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -74,7 +76,7 @@
           <a href="#feat_propty">librat</a>
         </li>
         <li>
-          <%= link_to "Kategorite", ks_platform_category_path(cat: @items.first.category.name) %>
+          <%= link_to "Kategorite", ks_platform_category_path(cat: @kl_items.first.category.name) %>
         </li>
         <li>
           <%= link_to "Kontakti", contact_path %>
@@ -90,7 +92,7 @@
           <a href="#feat_propty">librat</a>
         </li>
         <li>
-          <%= link_to "Kategorite", al_platform_category_path(cat: @items.first.category.name) %>
+          <%= link_to "Kategorite", al_platform_category_path(cat: @kl_items.first.category.name) %>
         </li>
         <li>
           <%= link_to "Kontakti", contact_path %>
