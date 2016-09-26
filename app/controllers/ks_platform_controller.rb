@@ -13,7 +13,7 @@ class KsPlatformController < ApplicationController
   end
 
 	def index
-    @items = Item.where(country_id:1, approve: true).page params[:page]  
+    @items = Item.where(country_id:1, approve: true).page params[:page] 
   end
 
   def show
@@ -26,6 +26,12 @@ class KsPlatformController < ApplicationController
         regenerate_ks_code
       end
     end  
+  end
+
+  def category
+    if params[:cat].present?
+      @items = Category.find_by(name: params[:cat]).items.where(country_id: 1, approve: true).page params[:page] 
+    end
   end
 
   def search

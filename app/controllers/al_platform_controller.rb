@@ -27,7 +27,13 @@ class AlPlatformController < ApplicationController
       end
     end  
   end
-
+  
+  def category
+    if params[:cat].present?
+      @items = Category.find_by(name: params[:cat]).items.where(country_id: 2, approve: true).page params[:page] 
+    end
+  end
+  
   def search
     if params[:search] && params[:search] != ""
       @items = Item.where(country_id: 2, approve: true).search(params[:search], params[:location]).order("created_at DESC").page params[:page]

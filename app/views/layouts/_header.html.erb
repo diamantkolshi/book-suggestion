@@ -1,111 +1,104 @@
 <section class="top_sec">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-md-6 top_lft">
-                <div class="soc_ico">
-                    <ul>
-                        <li class="tweet">
-                            <a href="https://twitter.com/mozaixllc">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="fb">
-                            <a href="https://web.facebook.com/mozaixllc">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </li>
-                        <li class="linkd">
-                            <a href="https://www.linkedin.com/company/10234357?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A10234357%2Cidx%3A2-1-2%2CtarId%3A1473546006101%2Ctas%3Amozaix">
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                        </li>
-                        <li class="rss">
-                            <a href="mozaix.net">
-                                <i class="fa fa-rss"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="inf_txt">
-                    <% if params["controller"] == "ks_platform" %>
-                        <p>Eksplorimi momental është në Kosovë</p>
-                    <% elsif params["controller"] == "al_platform" %>
-                        <p>Eksplorimi momental është në Shqipëri</p>
-                    <% end %>
-                </div>
-            </div>
-            <!-- /.top-left -->
-            <div class="col-xs-12 col-md-6 top_rgt">
-                <div class="sig_in"></div>
-                <div class="submit_prop">
-                    <h3 class="subm_btn">
-                        <%= link_to new_item_path do %>
-                            <i class="fa fa-bars"></i>
-                            <span> Regjistro librat </span>
-                        <% end %>
-                    </h3>
-                </div>
-            </div>
-            <!-- /.top-right -->
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 top_lft">
+        <div class="soc_ico">
+          <ul>
+            <li class="tweet">
+              <a href="https://twitter.com/mozaixllc">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li class="fb">
+              <a href="https://web.facebook.com/mozaixllc">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li class="linkd">
+              <a href="https://www.linkedin.com/company/10234357?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A10234357%2Cidx%3A2-1-2%2CtarId%3A1473546006101%2Ctas%3Amozaix">
+                <i class="fa fa-linkedin"></i>
+              </a>
+            </li>
+          </ul>
         </div>
-        <!-- /.row -->
+        <div class="inf_txt">
+          <% if params["controller"] == "ks_platform" %>
+          <p>Eksplorimi momental është në Kosovë</p>
+          <% elsif params["controller"] == "al_platform" %>
+          <p>Eksplorimi momental është në Shqipëri</p>
+          <% end %>
+        </div>
+      </div>
+      <!-- /.top-left -->
+      <div class="col-xs-12 col-md-6 top_rgt">
+        <div class="sig_in"></div>
+        <div class="submit_prop">
+          <h3 class="subm_btn">
+          <%= link_to new_item_path do %>
+          <i class="fa fa-bars"></i>
+          <span> Regjistro librat </span>
+          <% end %>
+          </h3>
+        </div>
+      </div>
+      <!-- /.top-right -->
     </div>
-    <!-- /.container -->
-        </section>
-        <!-- Navigation -->
-        <nav class="navbar" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
-                    <!-- Logo -->
-
-                    <a class="navbar-brand" href="<%= root_path %>">
-                    <%= image_tag "logobook.png", width: "150px", height: "50px" %>
-                    </a>
-                </div>
-                <!-- Navigation -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <% if params["controller"] == "ks_platform" %>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <%= link_to "Home", ks_platform_index_path %>
-                        </li>
-                        <li>
-                            <a href="#feat_propty">librat</a>
-                        </li>
-                        <li>
-                            <a href="#category">Kategorite </a>
-                        </li>
-                        <li>
-                            <a class="" href="#footer">Kontakti</a>
-                        </li>
-                    </ul>
-                    <% end %>
-
-                    <% if params["controller"] == "al_platform" %>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <%= link_to "Home", al_platform_index_path %>
-                        </li>
-                        <li>
-                            <a href="#feat_propty">librat</a>
-                        </li>
-                        <li>
-                            <a href="#category">Kategorite </a>
-                        </li>
-                        <li>
-                            <a class="" href="#footer">Kontakti</a>
-                        </li>
-                    </ul>
-                    <% end %>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container -->
-        </nav>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- Navigation -->
+<nav class="navbar" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <!-- Logo -->
+      <a class="navbar-brand" href="<%= root_path %>">
+        <%= image_tag "logobook.png", width: "150px", height: "50px" %>
+      </a>
+    </div>
+    <!-- Navigation -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <% if params["controller"] == "ks_platform" %>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to "Home", ks_platform_index_path %>
+        </li>
+        <li>
+          <a href="#feat_propty">librat</a>
+        </li>
+        <li>
+          <%= link_to "Kategorite", ks_platform_category_path(cat: @items.first.category.name) %>
+        </li>
+        <li>
+          <%= link_to "Kontakti", contact_path %>
+        </li>
+      </ul>
+      <% end %>
+      <% if params["controller"] == "al_platform" %>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to "Home", al_platform_index_path %>
+        </li>
+        <li>
+          <a href="#feat_propty">librat</a>
+        </li>
+        <li>
+          <%= link_to "Kategorite", al_platform_category_path(cat: @items.first.category.name) %>
+        </li>
+        <li>
+          <%= link_to "Kontakti", contact_path %>
+        </li>
+      </ul>
+      <% end %>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>

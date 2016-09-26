@@ -28,9 +28,9 @@
 										<div class="panel panel-default" style="margin-bottom: 20px;">
 											<div class="panel-image">
 											  <% unless item.images.first.nil? %>
-													<%= image_tag item.images.first.avatar.url(:profile), class: "img-responsive img-hover", style: "height: 250px;"%>
+													<%= image_tag item.images.first.avatar.url(:profile), class: "img-responsive img-hover" %>
 												<% else %>
-													<%= image_tag "no_image.jpg", class: "img-responsive img-hover", style: "height: 250px;"%>
+													<%= image_tag "no_image.jpg", class: "img-responsive img-hover", style: "height: 252px;"%>
 												<% end %>
 												<div class="img_hov_eff">
 													<%= link_to "More details", ks_platform_path(item), class: "btn btn-default btn_trans" %>

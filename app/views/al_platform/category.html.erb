@@ -5,7 +5,7 @@
         <div class="col-md-6">
           <p class="lnk_pag"><a href="index.html"> Ballina </a> </p>
           <p class="lnk_pag"> / </p>
-          <p class="lnk_pag"> Kerkimi </p>
+          <p class="lnk_pag"> Kategorite </p>
         </div>
         <div class="col-md-6 text-right">
           <p class="lnk_pag">
@@ -30,8 +30,6 @@
             Kerkuar: <%= params[:search] %>
             <% elsif params[:cat].present? %>
             Kategoria: <%= params[:cat] %>
-            <% elsif params[:city].present? %>
-            Vendi: <%= params[:city] %>
             <% else %>
             Search/Category
             <% end %>
@@ -46,12 +44,12 @@
           <div class="panel panel-default">
             <div class="panel-image">
               <% unless item.images.first.nil? %>
-              <%= image_tag item.images.first.avatar.url, class: "img-responsive img-hover", style: "height: 250px;"%>
+              <%= image_tag item.images.first.avatar.url(:profile), class: "img-responsive img-hover"%>
               <% else %>
-              <%= image_tag "no_image.jpg", class: "img-responsive img-hover", style: "height: 250px;"%>
+              <%= image_tag "no_image.jpg", class: "img-responsive img-hover", style: "height: 252px;"%>
               <% end %>
               <div class="img_hov_eff">
-                <%= link_to "More details", ks_platform_path(item), class: "btn btn-default btn_trans" %>
+                <%= link_to "More details", al_platform_path(item), class: "btn btn-default btn_trans" %>
               </div>
             </div>
             <div class="sal_labl">
@@ -63,7 +61,7 @@
                 <p class="bedrom"><i class="fa fa-home"></i><%= item.address %></p>
                 <p class="bedrom"><i class="fa fa-phone" aria-hidden="true"></i><%= item.phone %></p>
               </div>
-              <h3 class="sec_titl"><%= item.title %></h3>
+              <h3 class="sec_titl"><%= truncate(item.title, length: 30) %></h3>
               <p class="sec_desc" style="height: 50px;"><%= truncate(item.description,length: 90) %></p>
               <div class="panel_bottom">
                 <div class="col-md-6">
@@ -87,38 +85,12 @@
     </section>
     <!-- Sidebar Section -->
     <section id="sidebar" class="col-md-4">
-      <!-- Search Form -->
-      <div class="row">
-        <div class="col-md-12">
-          <div class="srch_frm">
-            <h3>Kerko</h3>
-            <%= form_tag(ks_platform_search_path, :method => "get") do %>
-            <div class="control-group form-group">
-              <div class="controls">
-                <%= text_field_tag :search, params[:search], class: "form-control", :placeholder => "Kerko libra ..", required: true  %>
-                <p class="help-block"></p>
-              </div>
-            </div>
-            <div class="control-group form-group">
-              <div class="controls">
-                <%= select_tag :location, options_for_select(@cities), class: "form-control", :include_blank => "Zgjedh lokacionin", required: true %>
-              </div>
-            </div>
-            <div id="success4"></div>
-            <!-- For success/fail messages -->
-            <button type="submit" class="btn btn-primary">Search</button>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <!-- /.row -->
-      <div class="spacer-30"></div>
       <!-- Categories -->
       <div class="row">
         <div class="titl_sec">
           <div class="col-lg-12">
             <h3 class="main_titl text-left">
-            Categories
+            Kategorite
             </h3>
           </div>
           <div class="clearfix"></div>
@@ -127,9 +99,9 @@
           <div class="info_sec first">
             <% @categories.each do |category| %>
             <div class="col-md-8">
-              <%= link_to ks_platform_category_path(cat: category.name) do %>
+              <%= link_to al_platform_category_path(cat: category.name) do %>
               <i class="fa fa-long-arrow-right"></i>
-              <p class="infos"> <%= category.name %> <span> (<%= category.items.where(country_id: 1).length %>) </span> </p>
+              <p class="infos"> <%= category.name %> <span> (<%= category.items.where(country_id: 2).length %>) </span> </p>
               <% end %>
             </div>
             <% end %>
@@ -160,7 +132,7 @@
             </div>
             <div class="panel-body col-md-9">
               <h3 class="sec_titl">
-              <%= link_to la_item.title, ks_platform_path(la_item) %>
+              <%= link_to la_item.title, al_platform_path(la_item) %>
               </h3>
               <div class="prop_feat">
                 <p class="area"><i class="fa fa-home"></i><%= la_item.location %></p>
@@ -170,26 +142,6 @@
           </div>
         </div>
         <% end %>
-      </div>
-      <!-- /.row -->
-      <div class="spacer-30"></div>
-      <!-- Tags -->
-      <div class="row">
-        <div class="titl_sec">
-          <div class="col-lg-12">
-            <h3 class="main_titl text-left">
-            Qytetet
-            </h3>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-        <div class="tags_sec">
-          <% @cities.each do |c| %>
-          <div class="tags_box">
-            <%= link_to c, ks_platform_search_path(city: c) %>
-          </div>
-          <% end %>
-        </div>
       </div>
       <!-- /.row -->
       <div class="spacer-30"></div>

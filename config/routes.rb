@@ -11,12 +11,14 @@ Rails.application.routes.draw do
 
   resources :ks_platform, only: [:index, :show]
   resources :al_platform, only: [:index, :show]
+  get "ks_platform_category", to: "ks_platform#category"
+  get "al_platform_category", to: "al_platform#category"
   
   get "intrudaction", to: "items#intrudaction"
   get "ks_platform_search", to: "ks_platform#search"
   get "al_platform_search", to: "al_platform#search"
   
-  resources :uploads, only: [:index, :create]
+  get "contact", to: "contact#index"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

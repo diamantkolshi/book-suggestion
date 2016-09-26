@@ -4,9 +4,8 @@
 		<div class="row">
 			<div class="titl_sec">
 				<div class="col-xs-6">
-					<h3 class="main_titl text-left">
-					
-						All Books				
+					<h3 class="main_titl text-left">					
+						Te gjitha librat
 					</h3>
 				</div>
 				<div class="col-xs-6">
@@ -22,61 +21,61 @@
 						<div class="container">
 							<div class="row">
 								<!-- Property listing 1 -->
-							<% if @items.any? %>
+								<% if @items.any? %>
 								<% @items.each do |item| %>
-									<div class="col-md-4">
-										<div class="panel panel-default" style="margin-bottom: 20px;">
-											<div class="panel-image">
-												<% unless item.images.first.nil? %>
-													<%= image_tag item.images.first.avatar.url(:profile), class: "img-responsive img-hover", style: "height: 250px;"%>
-												<% else %>
-													<%= image_tag "no_image.jpg", class: "img-responsive img-hover", style: "height: 250px;"%>
-												<% end %>
-												<div class="img_hov_eff">
-													<%= link_to "More details", al_platform_path(item), class: "btn btn-default btn_trans" %>
-												</div>
+								<div class="col-md-4">
+									<div class="panel panel-default" style="margin-bottom: 20px;">
+										<div class="panel-image">
+											<% unless item.images.first.nil? %>
+											<%= image_tag item.images.first.avatar.url(:profile), class: "img-responsive img-hover", style: "height: 250px;"%>
+											<% else %>
+											<%= image_tag "no_image.jpg", class: "img-responsive img-hover", style: "height: 250px;"%>
+											<% end %>
+											<div class="img_hov_eff">
+												<%= link_to "More details", al_platform_path(item), class: "btn btn-default btn_trans" %>
 											</div>
-											<div class="sal_labl">
-												For Sale
+										</div>
+										<div class="sal_labl">
+											For Sale
+										</div>
+										<div class="panel-body">
+											<div class="prop_feat">
+												<p class="area"><i class="fa fa-map-marker" aria-hidden="true"></i><%= item.location %></p>
+												<p class="bedrom"><i class="fa fa-home"></i><%= item.address %></p>
+												<p class="bedrom"><i class="fa fa-phone" aria-hidden="true"></i><%= item.phone %></p>
 											</div>
-											<div class="panel-body">
-												<div class="prop_feat">
-													<p class="area"><i class="fa fa-map-marker" aria-hidden="true"></i><%= item.location %></p>
-													<p class="bedrom"><i class="fa fa-home"></i><%= item.address %></p>
-													<p class="bedrom"><i class="fa fa-phone" aria-hidden="true"></i><%= item.phone %></p>
+											<h3 class="sec_titl"><%= truncate(item.title,length: 40) %></h3>
+											<p class="sec_desc" style="height: 50px;"><%= truncate(item.description,length: 90) %></p>
+											<div class="panel_bottom">
+												<div class="col-md-6">
+													<p class="price text-left"><%= number_with_precision(item.price, :precision => 2) %>€</p>
 												</div>
-												<h3 class="sec_titl"><%= truncate(item.title,length: 40) %></h3>
-												<p class="sec_desc" style="height: 50px;"><%= truncate(item.description,length: 90) %></p>
-												<div class="panel_bottom">
-													<div class="col-md-6">
-														<p class="price text-left"><%= number_with_precision(item.price, :precision => 2) %>€</p>
-													</div>
-													<div class="col-md-6">
-														<p class="readmore text-right"><%= item.name %></p>
-													</div>
+												<div class="col-md-6">
+													<p class="readmore text-right"><%= item.name %></p>
 												</div>
 											</div>
 										</div>
 									</div>
+								</div>
 								<% end %>
-							<% else %>
+								<% else %>
 								<p class="text-center"> Nuk gjinder asnje produkt </p>
-							<% end %>
+								<% end %>
 							</div>
 							<!-- /.row -->
 							<div class="spacer-40"></div>
 							<%= paginate @items %>
 							<!-- Pagination -->
 							<!-- <div class="pagin">
-								<ul>
-									<li> <a class="active" href="#"> 1 </a> </li>
-									<li> <a href="#"> 2 </a> </li>
-									<li> <a href="#"> 3 </a> </li>
-									<li> <a href="#"> 4 </a> </li>
-									<li>
-										<a href="#"> <i class="fa fa-long-arrow-right"></i> </a>
-									</li>
-								</ul>
+									<ul>
+											<li> <a class="active" href="#"> 1 </a> </li>
+											<li> <a href="#"> 2 </a> </li>
+											<li> <a href="#"> 3 </a> </li>
+											<li> <a href="#"> 4 </a> </li>
+											<li>
+													<a href="#"> <i class="fa fa-long-arrow-right"></i> </a>
+											</li>
+									</ul>
 							</div> -->
 						</div>
 						<!-- /.container -->
@@ -87,10 +86,3 @@
 		</div>
 		<!-- /.container -->
 	</section>
-
-
-
-
-
-
-
