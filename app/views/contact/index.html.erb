@@ -5,12 +5,14 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <p class="lnk_pag"><a href="index.html"> Home </a> </p>
+          <p class="lnk_pag"><a href="index.html"> Ballina </a> </p>
           <p class="lnk_pag"> / </p>
-          <p class="lnk_pag"> Contact Us </p>
+          <p class="lnk_pag"> Kontakti </p>
         </div>
         <div class="col-md-6 text-right">
-          <p class="lnk_pag"><a href="index.html"> Go Back to Home </a> </p>
+          <p class="lnk_pag">
+            <%= link_to "Kthehu te ballina" , root_path %>
+          </p>
         </div>
       </div>
     </div>
@@ -26,17 +28,17 @@
         <div class="titl_sec">
           <div class="col-lg-12">
             <h3 class="main_titl text-left">
-            Send us email
+              Dergo email
             </h3>
           </div>
           <div class="clearfix"></div>
         </div>
         <div class="col-md-12">
           <div class="cont_frm">
-            <form name="sentMessage" id="contactForm" novalidate>
+            <form name="sentMessage" id="contactForm">
               <div class="control-group form-group col-md-6 first">
                 <div class="controls">
-                  <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name." placeholder="Your Name">
+                  <input type="text" class="form-control" id="name" required data-validation-required-message="Ju lutemi shkruani emrin." placeholder="Emri juaj">
                   <div class="in_ico">
                     <i class="fa fa-user"></i>
                   </div>
@@ -50,7 +52,7 @@
                   <p class="help-block"></p>
                 </div>
                 <div class="controls">
-                  <input type="number" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number." placeholder="Your Phone">
+                  <input type="number" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number." placeholder="Telefoni juaj">
                   <div class="in_ico">
                     <i class="fa fa-phone"></i>
                   </div>
@@ -67,7 +69,7 @@
               </div>
               <div class="control-group form-group col-md-6">
                 <div class="controls">
-                  <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none" placeholder="Message"></textarea>
+                  <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none" placeholder="Mesazhi juaj"></textarea>
                   <div class="in_ico">
                     <i class="fa fa-paper-plane-o"></i>
                   </div>
@@ -84,21 +86,7 @@
       <!-- /.row -->
       <div class="spacer-30"></div>
       <!-- Location Map -->
-      <div class="row">
-        <div class="titl_sec">
-          <div class="col-lg-12">
-            <h3 class="main_titl text-left">
-            Our Location
-            </h3>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-        <div class="col-md-12">
-          <div class="map_ara">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3023.0855969237605!2d-73.99038!3d40.738141999999996!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a238556ce7%3A0x3445b7afb4f445e3!2sTaz+Studios!5e0!3m2!1sen!2sin!4v1432831471606" width="600" height="350"></iframe>
-          </div>
-        </div>
-      </div>
+      
       <!-- /.row -->
     </section>
     <!-- Sidebar Section -->
@@ -108,7 +96,7 @@
         <div class="titl_sec">
           <div class="col-lg-12">
             <h3 class="main_titl text-left">
-            Weedor information
+              Informacionet 
             </h3>
           </div>
           <div class="clearfix"></div>
@@ -118,13 +106,13 @@
             <div class="icon_box">
               <i class="fa fa-map-marker"></i>
             </div>
-            <p class="infos">4737 Horizon Circle Seattle WA 98109</p>
+            <p class="infos">Rr. Haxhi Zeka</p>
           </div>
           <div class="info_sec">
             <div class="icon_box">
               <i class="fa fa-envelope-o"></i>
             </div>
-            <p class="infos"><a href="mailto:weedor@realestate.com?Subject=template%20enquiry"> weedor@realestate.com </a>
+            <p class="infos"><a href="mailto:weedor@realestate.com?Subject=template%20enquiry"> mozaix@gmail.com </a>
           </p>
         </div>
         <div class="info_sec">
@@ -137,12 +125,12 @@
           <div class="icon_box">
             <i class="fa fa-facebook"></i>
           </div>
-          <p class="infos">facebook.com/weedor</p>
+          <p class="infos">
+          <%= link_to "https://www.facebook.com/mozaixllc", "https://www.facebook.com/mozaixllc/" %></p>
         </div>
       </div>
     </div>
     <!-- /.row -->
   </section>
-  <div class="spacer-60"></div>
 </div>
 </div>
