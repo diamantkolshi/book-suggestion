@@ -23,9 +23,9 @@
         </div>
         <div class="inf_txt">
           <% if params["controller"] == "ks_platform" %>
-          <p>Eksplorimi momental është në Kosovë</p>
+          <p>Kosovë</p>
           <% elsif params["controller"] == "al_platform" %>
-          <p>Eksplorimi momental është në Shqipëri</p>
+          <p>Shqipëri</p>
           <% end %>
         </div>
       </div>
@@ -36,7 +36,7 @@
           <h3 class="subm_btn">
           <%= link_to new_item_path do %>
           <i class="fa fa-bars"></i>
-          <span> Regjistro librat </span>
+          <span> POSTO NJË SHPALLJE </span>
           <% end %>
           </h3>
         </div>
@@ -70,13 +70,13 @@
       <% if params["controller"] == "ks_platform" %>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <%= link_to "Home", ks_platform_index_path %>
+          <%= link_to "Kryefaqja", ks_platform_index_path %>
         </li>
         <li>
           <a href="#feat_propty">librat</a>
         </li>
         <li>
-          <%= link_to "Kategorite", ks_platform_category_path(cat: @kl_items.first.category.name) %>
+          <%= link_to "KATEGORITË", ks_platform_category_path(cat: @kl_items.first.category.name) %>
         </li>
         <li>
           <%= link_to "Kontakti", contact_path %>
@@ -86,13 +86,13 @@
       <% if params["controller"] == "al_platform" %>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <%= link_to "Home", al_platform_index_path %>
+          <%= link_to "Kryefaqja", al_platform_index_path %>
         </li>
         <li>
           <a href="#feat_propty">librat</a>
         </li>
         <li>
-          <%= link_to "Kategorite", al_platform_category_path(cat: @kl_items.first.category.name) %>
+          <%= link_to "KATEGORITË", al_platform_category_path(cat: @kl_items.first.category.name) %>
         </li>
         <li>
           <%= link_to "Kontakti", contact_path %>
