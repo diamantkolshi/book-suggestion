@@ -13,7 +13,7 @@ class HomepagesController < ApplicationController
   		
   	if ip_country == "Albania"
   		redirect_to al_platform_index_path
-  	elsif ip_country == ""
+  	elsif ip_country == " "
   		redirect_to ks_platform_index_path
   	else
   	end

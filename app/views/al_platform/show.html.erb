@@ -102,28 +102,7 @@
       <!-- /.row -->
       <div class="spacer-30"></div>
       <!-- Categories -->
-      <div class="row">
-        <div class="titl_sec">
-          <div class="col-lg-12">
-            <h3 class="main_titl text-left">
-              KATEGORITË
-            </h3>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-        <div class="categ_info">
-          <div class="info_sec first">
-            <% @categories.each do |category| %>
-            <div class="col-md-8">
-              <%= link_to ks_platform_search_path(cat: category.name) do %>
-              <i class="fa fa-long-arrow-right"></i>
-              <p class="infos"> <%= category.name %> <span> (<%= category.items.where(country_id: 1).length %>) </span> </p>
-              <% end %>
-            </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
+      <%= render "category_list"%>
     </section>
     <div class="spacer-60"></div>
   </div>
