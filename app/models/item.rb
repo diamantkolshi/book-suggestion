@@ -25,9 +25,9 @@ class Item < ActiveRecord::Base
   def self.search(search, location)
     
     if location == "Gjithë Kosovën" || location == "Gjithë Shqiperinë"
-      where("title LIKE ? OR description LIKE ?", "%#{search}%","%#{search}%") 
+      where("title iLIKE ? OR description LIKE ?", "%#{search}%","%#{search}%") 
     else
-      where("AND title LIKE ? OR description LIKE ?","%#{search}%","%#{search}%")
+      where("AND title iLIKE ? OR description LIKE ?","%#{search}%","%#{search}%")
       where(location: location)
     end
   end

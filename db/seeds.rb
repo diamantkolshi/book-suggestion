@@ -9,14 +9,25 @@
 Category.delete_all
 Country.delete_all
 
-Category.create(name: "Libra te kl 10")
-Category.create(name: "Libra te kl 11")
+category1 = Category.create(name: "Libra te kl 10")
+category2 = Category.create(name: "Libra te kl 11")
 Category.create(name: "Libra te kl 12")
 Category.create(name: "Libra te kl 13")
 Category.create(name: "Libra fakultetit")
 Category.create(name: "Libra te ndryshem")
 
-Country.create(name: "Kosova")
-Country.create(name: "Shqiperia")
+country1 = Country.create(name: "Kosova")
+country2 = Country.create(name: "Shqiperia")
+
+item1 = Item.new(category_id: category1.id, country_id: country1.id, name: "Produkt 1", location: "Prishtine", title: "Libra te ndryshem",
+ 			description: "Matematika 10, Gejografi,", price: 23.5, address: "Rr. Rame Bllaca", phone: "044123321", code: nil, pending: nil, approve: true)
+puts "created item 1"
+
+item2 = Item.new(category_id: category2.id, country_id: country2.id, name: "Produkt 2", location: "Tirane", title: "Libra te ndryshem ne sh",
+ 			description: "Matematika 10, Gejografi,", price: 23.5, address: "Rr. Rame Bllaca", phone: "044223321", code: nil, pending: nil, approve: true)
+puts "created item 2"
+
+item1.save
+item2.save
 
 puts "...completed"

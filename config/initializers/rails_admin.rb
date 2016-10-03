@@ -21,7 +21,11 @@ RailsAdmin.config do |config|
       exclude_fields :phone
       exclude_fields :code
     end
-
+    
+    edit do
+      exclude_fields :avatar
+      exclude_fields :panding
+    end
 
   end
 

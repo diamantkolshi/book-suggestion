@@ -30,7 +30,7 @@ class KsPlatformController < ApplicationController
 
   def category
     if params[:cat].present?
-      @items = Category.find_by(name: params[:cat]).items.where(country_id: 1, approve: true).page params[:page] 
+      @items = Category.find_by(name: params[:cat]).items.where(country_id: 1, approve: true).page params[:page]
     end
   end
 
