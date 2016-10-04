@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   include ItemsHelper
   before_action :check_item_status, only: [:new]
   before_action :check_upload_status, only: [:uploads]
+  before_action :check_choose_form, only: [:choose_form]
   $item_id ||= nil
   $item_status ||= nil
   $form_status ||= nil
@@ -83,38 +84,25 @@ class ItemsController < ApplicationController
   end
 
   def check_item_status
-   if $item_status.nil?
-   else
-    redirect_to items_uploads_url
-   end
+    if $item_status == "between complete"
+      redirect_to items_uploads_url
+    end
+    if $form_status == nil
+      redirect_to items_choose_form_path
+    end
   end
 
   def check_upload_status
-    unless $item_status.nil?
-    else
-    redirect_to new_item_url
+    if $item_status == "between complete"
+    elsif
+      redirect_to new_item_path
    end
   end
+
+  def check_choose_form
+    if $item_status == "between complete"
+      redirect_to items_uploads_url
+    else
+    end
+  end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-# if check_code(params[:item][:code]) == true
-#       if @item.save
-#         flash[:success] = "Kerkesa juaj eshte bere me sukses"
-#         regeneration_code
-#       else
-#         flash[:danger] = @item.errors.messages      
-#       end
-#     else
-#       flash[:error] = "Kodi nuk eshte valid (shiko prano kodin)"
-#     end
