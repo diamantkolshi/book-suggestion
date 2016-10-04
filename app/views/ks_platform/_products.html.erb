@@ -54,7 +54,11 @@
 												<p class="sec_desc" style="height: 50px;"><%= truncate(item.description,length: 90) %></p>
 												<div class="panel_bottom">
 													<div class="col-md-6">
-														<p class="price text-left"><%= number_with_precision(item.price, :precision => 2) %>€</p>
+														<% if item.status == "sale" %>
+															<p class="price text-left"><%= number_with_precision(item.price, :precision => 2) %>€</p>
+														<% else %>
+															<p class="price text-left"> FALAS</p>
+														<% end %>
 													</div>
 													<div class="col-md-6">
 														<p class="readmore text-right"><%= item.name %></p>
