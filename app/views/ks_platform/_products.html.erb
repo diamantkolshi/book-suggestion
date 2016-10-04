@@ -34,10 +34,16 @@
 												<div class="img_hov_eff">
 													<%= link_to "More details", ks_platform_path(item), class: "btn btn-default btn_trans" %>
 												</div>
-											</div>
-											<div class="sal_labl">
-												NË SHITJE
-											</div>
+											</div>											
+												<% if item.status == "sale" %>
+													<div class="sal_labl">
+														NË SHITJE
+													</div>
+												<% elsif item.status == "give"%>
+												 <div class="sal_labl" style="background-color: #023956">
+														LIBËR FALAS
+													</div>
+												<% end %>											
 											<div class="panel-body">
 												<div class="prop_feat">
 													<p class="area"><i class="fa fa-map-marker" aria-hidden="true"></i><%= item.location %></p>

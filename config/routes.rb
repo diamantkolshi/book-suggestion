@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   resources :items, only: [:new, :create]
   get 'items/uploads', to: "items#uploads"
+  get 'items/uploads', to: "items#uploads"
+  get 'items/choose_form', to: "items#choose_form"
+  get 'items/give_books', to: "items#give_books"
+  get 'items/sell_books', to: "items#sell_books"
   post 'upload_image', to: "items#upload_image"  
   delete 'delete_image', to: "items#delete_image"
   get 'complete_register', to: "items#complete_register"

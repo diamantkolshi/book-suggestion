@@ -17,7 +17,6 @@ class Item < ActiveRecord::Base
   validates :title, uniqueness: { :message => 'Titulli eshte i njejte (provo nje titull tjeter)'}
   validates :description, presence: true
   validates :phone, presence: { :message => 'Numri i telefonit eshte i njejte'}
-  validates :price, presence: true
   validates :category, presence: true
   validates :country, presence: true
   validates :location, presence: true

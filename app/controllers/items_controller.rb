@@ -4,14 +4,16 @@ class ItemsController < ApplicationController
   before_action :check_upload_status, only: [:uploads]
   $item_id ||= nil
   $item_status ||= nil
+  $form_status ||= nil
+  $code_status ||= nil
 
   def new
     @items = Item.new
   end
 
   def create 
-    @item = Item.new(require_params)  
-
+    @item = Item.new(require_params.merge!({status: "give"})) if $form_status == "give"
+    @item = Item.new(require_params.merge!({status: "sale"})) if $form_status == "sale"
     if @item.save
       flash[:success] = "Kerkesa juaj eshte bere me sukses"
       $item_id = @item.id
@@ -45,10 +47,35 @@ class ItemsController < ApplicationController
   def complete_register
     $item_id = nil
     $item_status = nil
+    $form_status = nil
+    $code_status = nil
     flash[:success] = "Kerkesa juaj eshte bere me sukses"
-    redirect_to new_item_url
+    redirect_to items_choose_form_path
   end
-  
+
+  def choose_form
+  end
+
+  def give_books
+    $form_status = "give"
+    redirect_to new_item_path
+  end
+
+  def sell_books
+    $form_status = "sale"
+    unless $code_status == true
+      if check_code(params[:code]) == true
+        $code_status = true
+        redirect_to new_item_path   
+      else
+        redirect_to items_choose_form_path
+        flash[:error] = "Kodi nuk eshte valid"
+      end   
+    else
+      redirect_to new_item_path 
+    end 
+  end
+
   private 
 
   def require_params
@@ -68,7 +95,6 @@ class ItemsController < ApplicationController
     redirect_to new_item_url
    end
   end
-
 end
 
 

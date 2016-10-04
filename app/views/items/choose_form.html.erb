@@ -1,0 +1,102 @@
+<br>
+<div class="container">
+	<div class="row">
+		<div class="titl_sec">
+			<div class="col-xs-6">
+				<h3 class="main_titl text-left" style="margin-right: 20px;">
+				Lloji i regjistrimit
+				</h3>
+				
+			</div>
+			<div class="col-xs-6">
+				</h3>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<div class="container" style="width: 950px;">
+	<div class="modal-content">
+		<div class="modal-header" style="margin-left: 100px;">
+			<form>
+				<div class="col-xs-6">
+					<input type="checkbox" id="give_books" name="value1" value="give" /> Deshiroj te dhuroj libera
+				</div>
+				<div class="col-xs-6">
+					<input type="checkbox" id="sell_books" name="value1" value="sell" /> Deshiroj te shes libera
+				</div>
+			</form>
+		</div>
+	</div>
+	<br>
+	<%= render 'errors' %>
+</div>
+
+
+
+
+<%= render "give_books" %>
+<%= render "sell_books" %>
+
+
+<script type="text/javascript">
+
+	setTimeout(function(){
+		$('.footer').css('position', "absolute");
+	   if ( $('#give_books').is(':checked') ){
+	    $('#div2').show();
+	  }
+	  else {
+	    $('#div2').hide();
+	  }
+	  if ( $('#sell_books').is(':checked') ){
+	    $('#div1').show();
+	  }
+	  else {
+	    $('#div1').hide();
+	  }
+	}, 1)
+
+
+	$('#give_books').change(function () {
+	    if ($(this).is(':checked')) {
+	     $('#div2').fadeIn(100);
+	     $('#div1').fadeOut(100)
+	     $('.footer').css('position', "absolute");
+	    }
+	    else {
+	      $('#div2').fadeOut(100);
+	    }
+	});
+	$('#sell_books').change(function () {
+	    if ($(this).is(':checked')) {
+	     $('#div1').fadeIn(100);
+	     $('#div2').fadeOut(100);
+	     $('.footer').css('position', "relative");
+	    }
+	    else {
+	      $('#div1').fadeOut(100);
+	       $('.footer').css('position', "absolute");
+	    }
+	});
+
+	$("input:checkbox").on('click', function() {
+	  // in the handler, 'this' refers to the box clicked on
+	  var $box = $(this);
+	  if ($box.is(":checked")) {
+	    // the name of the box is retrieved using the .attr() method
+	    // as it is assumed and expected to be immutable
+	    var group = "input:checkbox[name='" + $box.attr("name") + "']";
+	    // the checked state of the group/box on the other hand will change
+	    // and the current value is retrieved using .prop() method
+	    $(group).prop("checked", false);
+	    $box.prop("checked", true);
+		  if ($('#sell_books').is(':not(:checked)')) {
+	     $('#expire_date').hide();
+	    }
+	  }else {
+	    $box.prop("checked", false);
+	  }
+
+	});
+</script>

@@ -3,15 +3,15 @@
 	<div class="row">
 		<div class="titl_sec">
 			<div class="col-xs-6">
-				<h3 class="main_titl text-left" style="margin-right: 20px;">				
-					Regjistro Librat			
+				<h3 class="main_titl text-left" style="margin-right: 20px;">
+				Regjistro Librat
 				</h3>
-				<h3 class="main_titl text-left" style="border-bottom: none;width: 30px;">          
-           <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        </h3>
-				<h3 class="main_titl text-left" style="border-bottom: none;">  
-           Galeria e fotografive     
-         </h3>
+				<h3 class="main_titl text-left" style="border-bottom: none;width: 30px;">
+				<i class="fa fa-arrow-right" aria-hidden="true"></i>
+				</h3>
+				<h3 class="main_titl text-left" style="border-bottom: none;">
+				Galeria e fotografive
+				</h3>
 			</div>
 			<div class="col-xs-6">
 				</h3>
@@ -21,72 +21,75 @@
 	</div>
 </div>
 <div class="container" style="width: 900px;">
- 	<%= render 'errors' %>
-  <div class="modal-content">
-      <div class="modal-body">
-          <div class="log_form">
-               <%= form_for @items, url: { controller: "items", action: "create" } do |f| %>
-                  <div class="control-group form-group">
-                      <div class="controls">
-                      		<%= f.text_field :name, placeholder: "Emri*", class: 'form-control', required: true %>
-                          <p class="help-block"></p>
-                      </div>
-
-                      <div class="controls">
-                          <%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
-                          <p class="help-block"></p>
-                      </div>
-                  </div>
-                  <div class="control-group form-group">
-                      <div class="controls col-md-6 first">
-                          <%= f.collection_select :country_id, Country.all, :id, :name, {prompt: "Zgjidh Vendin*"}, {class: "form-control", :required => true} %>
-                      </div>
-                      <div class="controls col-md-6">
-                          <%= f.select :location, [], {prompt: "Zgjidh locacionin*"}, { class: "form-control", require: true } %>
-
-                      </div>
-                      <div class="clearfix"></div>
-                  </div>
-                  <div class="control-group form-group">
-                      <div class="controls">
-													<%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Zgjidh kategorine e librave*"}, {class: "form-control", :required => true}%>	                <p class="help-block"></p>
-											</div>
-                  </div>
-                  <div class="control-group form-group">
-                      <div class="controls col-md-6 first">
-                          <%= f.text_field :address, placeholder: "Adresa*", class: 'form-control', required: true %>
-                      </div>
-                      <div class="controls col-md-6">
-                          <%= f.text_field :phone, placeholder: "Telefoni*", class: 'form-control', required: true %>
-                      </div>
-                      <div class="clearfix"></div>
-                  </div>                            
-                  <div class="control-group form-group">
-                      <div class="controls col-md-6 first">
-                          <%= f.text_field :title, placeholder: "Titulli i shpalljes*", class: 'form-control', required: true %>
-                      </div>
-                      <div class="controls col-md-6">
-                          <%= f.text_field :price, class: 'form-control', placeholder: "Cmimi*", required: true %>
-                      </div>
-                      <div class="clearfix"></div>
-                  </div>
-                  <div class="control-group form-group">
-                      <div class="controls">
-                      <%= f.text_area :description, placeholder: "Permbajtja*", class: 'form-control', style: "resize:none",required: true %>
-                      </div>
-                  </div>
-
-
-                 
-                	<%= f.submit :Vazhdo, class: "form-control text-center", style: "background: #ef7351;font-size:14px;    text-transform: uppercase;color: white" %>
-
-              <% end %>
+	<%= render 'errors' %>
+	<div class="modal-content">
+		<div class="modal-body">
+			<div class="log_form">
+				<%= form_for @items, url: { controller: "items", action: "create" } do |f| %>
+				<div class="control-group form-group">
+					<div class="controls">
+						<%= f.text_field :name, placeholder: "Emri*", class: 'form-control', required: true %>
+						<p class="help-block"></p>
+					</div>
+					<div class="controls">
+						<%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group form-group">
+					<div class="controls col-md-6 first">
+						<%= f.collection_select :country_id, Country.all, :id, :name, {prompt: "Zgjidh Vendin*"}, {class: "form-control", :required => true} %>
+					</div>
+					<div class="controls col-md-6">
+						<%= f.select :location, [], {prompt: "Zgjidh locacionin*"}, { class: "form-control", require: true } %>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="control-group form-group">
+					<div class="controls">
+						<%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Zgjidh kategorine e librave*"}, {class: "form-control", :required => true}%>
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div class="control-group form-group">
+					<div class="controls col-md-6 first">
+						<%= f.text_field :address, placeholder: "Adresa*", class: 'form-control', required: true %>
+					</div>
+					<div class="controls col-md-6">
+						<%= f.text_field :phone, placeholder: "Telefoni*", class: 'form-control', required: true %>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="control-group form-group">
+					<div class="controls col-md-6 first">
+						<%= f.text_field :title, placeholder: "Titulli i shpalljes*", class: 'form-control', required: true %>
+					</div>
+					<div class="controls col-md-6">
+				    <% if $form_status == "give" %>
+							<%= f.text_field :price, class: 'form-control', placeholder: "Cmimi*", :disabled => true %>
+						<% elsif $form_status == "sale"  %>
+							<%= f.text_field :price, class: 'form-control', placeholder: "Cmimi*", required: true %>
+						<% end %>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="control-group form-group">
+					<div class="controls">
+						<%= f.text_area :description, placeholder: "Permbajtja*", class: 'form-control', style: "resize:none",required: true %>
+					</div>
+				</div>
 				
-				     
-          </div>
-      </div>
-  </div>
+				<%= f.submit :Vazhdo, class: "form-control text-center", style: "background: #ef7351;font-size:14px;    text-transform: uppercase;color: white" %>
+				<% end %>
+				
+				
+			</div>
+		</div>
+	</div>
 </div>
+
+
+
 
 <script>
 	var cities = [
@@ -121,8 +124,6 @@
 		{"country_id": 1, "city": "Zubin"},
 		{"country_id": 1, "city": "Potok"},
 		{"country_id": 1, "city": "Zveçan"},
-
-
 		{"country_id": 2, "city": "Tirana"},
 		{"country_id": 2, "city": "Durrësi"},
 		{"country_id": 2, "city": "Elbasani"},
@@ -145,23 +146,17 @@
 		{"country_id": 2, "city": "Puka"},
 		{"country_id": 2, "city": "Shëngjini"},
 	];
-
-
-
 	$('#item_country_id').change(function() {
-
 		var id=$(this).val();
 		// var dataString = 'id='+ id;
-     
-		var option = '<option selected="selected" value=""> Zgjedh Qytetin* </option>';
 
+		var option = '<option selected="selected" value=""> Zgjedh Qytetin* </option>';
 		for(var i = 0; i < cities.length; i++) {
 			if(cities[i].country_id == id) {
 				option += '<option value="'+ cities[i].city+'">'+cities[i].city+'</option>';
 			}
 		}
-
-		$("#item_location").prop("required", "required"); 
+		$("#item_location").prop("required", "required");
 		$("#item_location").html(option);
 	});
 </script>
